@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  width: auto;
+}
+nav {
+  background-color: #dcd7c7;
+  width: auto;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+ul li {
+  display: inline-block;
+  color: white;
+  margin: 0px 50px;
+  font-size: 20px;
+}
+.logo {
+  width: 120px;
+  height: 120px;
+}
+.cart {
+  margin: 0px 50px;
+}
+.heading {
+  width: 1200px;
+  margin: 30px auto;
+}
+.heading img {
+  border-radius: 30px;
+}
+.heading p {
+  margin: 50px auto;
+}
+.products {
+  display: flex;
+  margin: 50px;
+  justify-content: center;
+}
+.products img {
+  display: block;
+  margin: 10px;
+}
