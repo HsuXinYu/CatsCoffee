@@ -10,18 +10,29 @@
   <body>
     <nav>
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a>News</a></li>
-        <li><a>Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#menu">Menu</a></li>
         <img class="logo" src="images/logo_150x150.png" alt="logo" />
-        <li><a>Sign In</a></li>
-        <li><a>Shop</a></li>
+        <li><a href="">Sign In</a></li>
+        <li><a href="">Shop</a></li>
         <img class="cart" src="images/shoppingCart_36x36.png" />
       </ul>
     </nav>
     <main>
       <div class="heading">
         <img src="https://picsum.photos/1200/500" alt="heading" />
+      </div>
+      <div id="about" class="about">
+        <p>
+          凱絲貓的經營理念是希望營造出令人放鬆的咖啡館，<br />
+          而店裡的貓咪也會在此等候著您的到來。 <br />
+          Cat's coffees is to create a relaxing environment, and the cats in the
+          shop will also be waiting for your arrival.
+        </p>
+      </div>
+      <div id="news" class="news">
+        <img src="" alt="" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet
           arcu blandit, bibendum ipsum quis, porttitor nibh. Nam elementum eget
@@ -29,13 +40,261 @@
           pretium sem. Vivamus porttitor ante erat, ut mollis massa convallis
           nec. Etiam urna justo, pellentesque eu enim vel, mollis tristique
           enim. Suspendisse malesuada facilisis nibh et accumsan. Nunc
-          scelerisque congue dui. Quisque sollicitudin mi vitae lacus sodales,
-          eget auctor ante pulvinar. Mauris non sagittis tortor, sit amet
-          dignissim odio. Maecenas lacinia felis nec pretium dignissim. Aliquam
-          erat volutpat. Vestibulum velit justo, posuere vitae turpis vitae,
-          interdum placerat magna. Nullam eu velit vel quam fringilla mollis non
-          sit amet velit. Nam a posuere ex. Curabitur commodo aliquam faucibus.
         </p>
+      </div>
+      <div id="menu" class="menu">
+        <section>
+          <h2>Coffee</h2>
+          <img src="" alt="coffee icon" />
+          <article class="item">
+            <span class="flavor"><p>French Vanilla</p></span
+            ><span class="hiddenimg"
+              ><img src="images/FrenchVanilla.jpg" width="200px" height="200px"
+            /></span>
+            <p class="price">$150</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="french_vanilla"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+          <article class="item">
+            <span class="flavor"><p>Caramel Macchiato</p></span
+            ><span class="hiddenimg"
+              ><img
+                src="images/CaramelMacchiato.jpg"
+                width="200px"
+                height="200px"
+            /></span>
+            <p class="price">$150</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="caramel_macchiato"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+          </article>
+          <article class="item">
+            <span class="flavor"><p>Pumpkin Spice</p></span
+            ><span class="hiddenimg"
+              ><img src="images/PumpkinSpice.jpg" width="200px" height="200px"
+            /></span>
+            <p class="price">$120</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="pumpkin_spice"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+          </article>
+          <article class="item">
+            <span class="flavor"><p>Hazelnut</p></span
+            ><span class="hiddenimg"
+              ><img src="images/Hazelnut.jpg" width="200px" height="200px"
+            /></span>
+            <p class="price">$120</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="hazelnut"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+          </article>
+          <article class="item">
+            <span class="flavor"><p>Mocha</p></span
+            ><span class="hiddenimg"
+              ><img src="images/Mocha.jpg" width="200px" height="200px"
+            /></span>
+            <p class="price">$120</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="mocha"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+          </article>
+        </section>
+        <section>
+          <h2>Desserts</h2>
+          <img src="" alt="pie icon" />
+          <article class="item">
+            <span class="dessert"><p>Donut</p></span
+            ><span class="hiddenimg"
+              ><img src="images/Donut.jpg" width="200px" height="200px"
+            /></span>
+            <p class="price">$60</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="donut"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+          </article>
+          <article class="item">
+            <span class="dessert"><p>Cherry Pie</p></span
+            ><span class="hiddenimg"
+              ><img src="images/CherryPie.jpg" width="200px" height="200px"
+            /></span>
+            <p class="price">$60</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="cherry_pie"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+          </article>
+          <article class="item">
+            <span class="dessert"><p>Cheese Cake</p></span
+            ><span class="hiddenimg"
+              ><img src="images/CheeseCake.jpg" width="200px" height="200px"
+            /></span>
+            <p class="price">$70</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="1"
+                id="cheese_cake"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+          </article>
+        </section>
       </div>
       <div class="products">
         <img src="https://picsum.photos/200/200" alt="product-1" />
@@ -44,7 +303,13 @@
         <img src="https://picsum.photos/200/200" alt="product-4" />
         <img src="https://picsum.photos/200/200" alt="product-5" />
       </div>
+      <section class="products">
+        <p>So what are you waiting for?</p>
+        <button>ENTER SHOP</button>
+      </section>
     </main>
     <footer></footer>
+    <a class="top" href="#" style="text-decoration: none">&uarr;</a>
+    <script src="js/order.js"></script>
   </body>
 </html>
