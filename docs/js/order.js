@@ -19,9 +19,38 @@ let caramel_macchiato = new MenuItem(
   150,
   "images/CaramelMacchiato.jpg"
 );
+let pumpkin_spice = new MenuItem(
+  "pumpkin_spice",
+  "Pumpkin Spice",
+  120,
+  "images/PumpkinSpice.jpg"
+);
+let hazelnut = new MenuItem("hazelnut", "Hazelnut", 120, "images/Hazelnut.jpg");
+let mocha = new MenuItem("mocha", "Mocha", 120, "images/Mocha.jpg");
 let donut = new MenuItem("donut", "Donut", 60, "images/Donut.jpg");
+let cherry_pie = new MenuItem(
+  "cherry_pie",
+  "Cherry Pie",
+  60,
+  "images/CherryPie.jpg"
+);
+let cheese_cake = new MenuItem(
+  "cheese_cake",
+  "Cheese Cake",
+  70,
+  "images/CheeseCake.jpg"
+);
 
-let menu_data = [french_vanilla, caramel_macchiato, donut];
+let menu_data = [
+  french_vanilla,
+  caramel_macchiato,
+  pumpkin_spice,
+  hazelnut,
+  mocha,
+  donut,
+  cherry_pie,
+  cheese_cake,
+];
 
 document.querySelectorAll(".minus").forEach(function (e) {
   e.onclick = decrementValue;
@@ -67,7 +96,7 @@ function clacTotal() {
       }
     }
   }
-  document.querySelector(".ordered").innerHTML = total;
+  document.querySelector("#total").innerHTML = total;
   // console.log(total);
   return total;
 }
