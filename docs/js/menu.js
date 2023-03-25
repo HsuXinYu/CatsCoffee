@@ -51,6 +51,59 @@ let menu_data = [
   cherry_pie,
   cheese_cake,
 ];
+// document.querySelectorAll(".hiddenimg").forEach(function (hiddenimg) {
+//   hiddenimg.addEventListener("mouseover", function (e) {
+//     console.log(e);
+//   });
+// });
+
+let flavor = document.querySelectorAll(".flavor");
+// let hiddenimg = document.querySelectorAll(".hiddenimg");
+for (let i = 0; i < flavor.length; i++) {
+  flavor[i].addEventListener("mouseover", function (e) {
+    // console.log(e.target.parentElement.parentElement.dataset.menuid);
+    for (let j = 0; j < menu_data.length; j++) {
+      if (
+        e.target.parentElement.parentElement.dataset.menuid == menu_data[j].id
+      ) {
+        let hiddenimg = e.target.parentElement.parentElement.children[1];
+        // console.log(menu_data[j].menu_img);
+        // console.log(hiddenimg[j].children);
+        hiddenimg.children[0].src = menu_data[j].menu_img;
+      }
+      if (
+        e.target.parentElement.parentElement.dataset.menuid == menu_data[j].id
+      ) {
+        let hiddenimg = e.target.parentElement.parentElement.children[1];
+        // console.log(menu_data[j].menu_img);
+        // console.log(hiddenimg[j].children);
+        hiddenimg.children[0].src = menu_data[j].menu_img;
+      }
+    }
+  });
+}
+
+let dessert = document.querySelectorAll(".dessert");
+for (let i = 0; i < dessert.length; i++) {
+  dessert[i].addEventListener("mouseover", function (e) {
+    for (let j = 0; j < menu_data.length; j++) {
+      if (
+        e.target.parentElement.parentElement.dataset.menuid == menu_data[j].id
+      ) {
+        let hiddenimg = e.target.parentElement.parentElement.children[1];
+
+        hiddenimg.children[0].src = menu_data[j].menu_img;
+      }
+      if (
+        e.target.parentElement.parentElement.dataset.menuid == menu_data[j].id
+      ) {
+        let hiddenimg = e.target.parentElement.parentElement.children[1];
+
+        hiddenimg.children[0].src = menu_data[j].menu_img;
+      }
+    }
+  });
+}
 
 document.querySelectorAll(".minus").forEach(function (e) {
   e.onclick = decrementValue;

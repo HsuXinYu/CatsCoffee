@@ -3,8 +3,8 @@
   padding: 0;
   list-style: none;
 }
-body {
-  width: auto;
+main {
+  text-align: center;
 }
 nav {
   background-color: rgb(220, 215, 199);
@@ -48,8 +48,15 @@ ul li a {
 .heading img {
   border-radius: 30px;
 }
+/* 解決固定nav定位錯誤問題 */
+:target:before {
+  content: "";
+  display: block;
+  height: 125px;
+}
 .about,
 .news {
+  margin: 50px;
   text-align: center;
 }
 .menu {
