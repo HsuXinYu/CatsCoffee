@@ -51,6 +51,8 @@ let menu_data = [
   cherry_pie,
   cheese_cake,
 ];
+
+//照片內嵌在HTML
 // document.querySelectorAll(".hiddenimg").forEach(function (hiddenimg) {
 //   hiddenimg.addEventListener("mouseover", function (e) {
 //     console.log(e);
