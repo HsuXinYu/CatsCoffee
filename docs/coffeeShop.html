@@ -7,6 +7,11 @@
     <title>Cat's Coffee</title>
     <link rel="stylesheet" href="css/coffeeShop.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
   </head>
   <body>
     <nav>
@@ -15,7 +20,45 @@
         <li><a class="link" href="#news">News</a></li>
         <li><a class="link" href="#menu">Menu</a></li>
         <img class="logo" src="images/logo_150x150.png" alt="logo" />
-        <li><a href="login.html">Sign In</a></li>
+        <li>
+          <a href="#" class="link" onclick="show()" onkeypress="show()"
+            >Login</a
+          >
+          <!-- login -->
+          <div id="login" class="login" style="display: none">
+            <!-- login content-->
+            <form action="action_page.php" method="post">
+              <div class="img-container">
+                <img class="logo" src="images/logo_150x150.png" alt="logo" />
+              </div>
+              <div>
+                <label for="uname"><b>Username</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter Username"
+                  name="uname"
+                  required
+                />
+              </div>
+              <div>
+                <label for="psw"><b>Password</b></label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
+              </div>
+              <div>
+                <button type="submit">Login</button>
+              </div>
+              <div>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+        </li>
+
         <li><a href="">Shop</a></li>
         <li><img class="cart" src="images/shoppingCart_36x36.png" /></li>
       </ul>
@@ -320,7 +363,8 @@
     </main>
     <footer></footer>
     <a class="top" href="#" style="text-decoration: none">&uarr;</a>
-    <script src="js/menu.js"></script>
     <script src="js/scrollToElement.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

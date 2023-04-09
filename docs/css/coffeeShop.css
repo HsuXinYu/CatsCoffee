@@ -130,3 +130,7 @@ footer {
   right: 50px;
   bottom: 50px;
 }
+#login {
+  background-color: rgb(220, 215, 199);
+  text-align: center;
+}

@@ -4,7 +4,7 @@ $(document).ready(function () {
       {
         scrollTop: 0,
       },
-      800
+      500
     );
   });
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
       {
         scrollTop: $(hrefLink).offset().top,
       },
-      800
+      500
     );
   });
 });
