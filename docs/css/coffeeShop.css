@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+main {
+  text-align: center;
+}
+nav {
+  background-color: rgb(220, 215, 199);
+  width: auto;
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0px;
+}
+ul li {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0px 10px;
+}
+ul li a:hover {
+  background-color: rgb(190, 185, 170);
+}
+ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 10px;
+}
+.logo {
+  width: 120px;
+  height: 120px;
+  margin: 0px 150px;
+}
+.cart {
+  margin: 0px 10px;
+}
+.heading {
+  display: block;
+  width: 100%;
+  margin: 30px auto;
+  text-align: center;
+}
+.heading img {
+  border-radius: 30px;
+}
+/* 解決固定nav定位錯誤問題 */
+:target:before {
+  content: "";
+  display: block;
+  height: 125px;
+}
+.about,
+.news {
+  margin: 50px;
+  text-align: center;
+}
+.menu {
+  max-width: 60%;
+  margin: 30px auto;
+  border: dotted 2px rgb(220, 215, 199);
+  padding: 30px;
+  text-align: center;
+}
+.hiddenimg {
+  display: none;
+  position: absolute;
+  /* left: 10px;
+  top: 400px; */
+}
+.flavor:hover ~ .hiddenimg {
+  display: block;
+  position: absolute;
+  z-index: 2;
+}
+.dessert:hover ~ .hiddenimg {
+  display: block;
+  position: absolute;
+  z-index: 2;
+}
+.flavor p,
+.dessert p {
+  display: inline-block;
+  text-align: left;
+  padding: 10px;
+  width: 20%;
+}
+.price {
+  display: inline-block;
+  text-align: right;
+  width: 20%;
+  margin: 10px;
+}
+.input_group {
+  display: inline;
+}
+.products {
+  display: flex;
+  margin: 50px;
+  justify-content: center;
+}
+.products img {
+  display: block;
+  margin: 10px;
+}
+footer {
+  background-color: rgb(220, 215, 199);
+  width: auto;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+}
+.top {
+  background-color: rgb(220, 215, 199);
+  width: 80px;
+  height: 80px;
+  border-radius: 60%;
+
+  text-align: center;
+  line-height: 80px;
+  color: #212529;
+  text-decoration: none;
+  display: block;
+  position: fixed;
+  margin: auto;
+  right: 50px;
+  bottom: 50px;
+}
+#login {
+  background-color: rgb(220, 215, 199);
+  text-align: center;
+}

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat's Coffee</title>
+    <link rel="stylesheet" href="css/coffeeShop.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="link" href="#about">About</a></li>
+        <li><a class="link" href="#news">News</a></li>
+        <li><a class="link" href="#menu">Menu</a></li>
+        <img class="logo" src="images/logo_150x150.png" alt="logo" />
+        <li>
+          <a href="#" class="link" onclick="show()" onkeypress="show()"
+            >Login</a
+          >
+          <!-- login -->
+          <div id="login" class="login" style="display: none">
+            <!-- login content-->
+            <form action="action_page.php" method="post">
+              <div class="img-container">
+                <img class="logo" src="images/logo_150x150.png" alt="logo" />
+              </div>
+              <div>
+                <label for="uname"><b>Username</b></label>
+                <input
+                  type="text"
+                  placeholder="Enter Username"
+                  name="uname"
+                  required
+                />
+              </div>
+              <div>
+                <label for="psw"><b>Password</b></label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="psw"
+                  required
+                />
+              </div>
+              <div>
+                <button type="submit">Login</button>
+              </div>
+              <div>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+        </li>
+
+        <li><a href="">Shop</a></li>
+        <li><img class="cart" src="images/shoppingCart_36x36.png" /></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="heading">
+        <img src="https://picsum.photos/1200/500" alt="heading" />
+      </div>
+      <div id="about" class="about">
+        <p>
+          凱絲貓的經營理念是希望營造出令人放鬆的咖啡館，<br />
+          而店裡的貓咪也會在此等候著您的到來。 <br />
+          Cat's coffees is to create a relaxing environment, and the cats in the
+          shop will also be waiting for your arrival.
+        </p>
+      </div>
+      <div id="news" class="news">
+        <img src="" alt="" />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet
+          arcu blandit, bibendum ipsum quis, porttitor nibh. Nam elementum eget
+          eros ac porttitor. Morbi dui neque, porttitor et ligula vel, molestie
+          pretium sem. Vivamus porttitor ante erat, ut mollis massa convallis
+          nec. Etiam urna justo, pellentesque eu enim vel, mollis tristique
+          enim. Suspendisse malesuada facilisis nibh et accumsan. Nunc
+        </p>
+      </div>
+      <div id="menu" class="menu">
+        <section>
+          <h2>Coffee</h2>
+          <img src="images/coffeeIcon_48x48.png" alt="coffee icon" />
+          <article class="item" data-menuid="french_vanilla">
+            <span class="flavor"><p>French Vanilla</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$150</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="french_vanilla"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+          <article class="item" data-menuid="caramel_macchiato">
+            <span class="flavor"><p>Caramel Macchiato</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$150</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="caramel_macchiato"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+          <article class="item" data-menuid="pumpkin_spice">
+            <span class="flavor"><p>Pumpkin Spice</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$120</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="pumpkin_spice"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+          <article class="item" data-menuid="hazelnut">
+            <span class="flavor"><p>Hazelnut</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$120</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="hazelnut"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+          <article class="item" data-menuid="mocha">
+            <span class="flavor"><p>Mocha</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$120</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="mocha"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+        </section>
+        <section>
+          <h2>Desserts</h2>
+          <img src="" alt="pie icon" />
+          <article class="item" data-menuid="donut">
+            <span class="dessert"><p>Donut</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$60</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="donut"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+          <article class="item" data-menuid="cherry_pie">
+            <span class="dessert"><p>Cherry Pie</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$60</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="cherry_pie"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+          <article class="item" data-menuid="cheese_cake">
+            <span class="dessert"><p>Cheese Cake</p></span
+            ><span class="hiddenimg"
+              ><img src="" width="200px" height="200px"
+            /></span>
+            <p class="price">$70</p>
+            <div class="input_group">
+              <input
+                class="minus"
+                type="button"
+                value="-"
+                data-field="quantity"
+              />
+              <input
+                type="number"
+                name="quantity"
+                step="1"
+                min="0"
+                max="10"
+                value="0"
+                id="cheese_cake"
+                class="quantity_field"
+              />
+              <input
+                class="plus"
+                type="button"
+                value="+"
+                data-field="quantity"
+              />
+            </div>
+          </article>
+        </section>
+        <div class="ordered">
+          <p>Total Price:</p>
+          <p id="total"></p>
+          <button>Order</button>
+        </div>
+      </div>
+      <div class="products">
+        <img src="https://picsum.photos/200/200" alt="product-1" />
+        <img src="https://picsum.photos/200/200" alt="product-2" />
+        <img src="https://picsum.photos/200/200" alt="product-3" />
+        <img src="https://picsum.photos/200/200" alt="product-4" />
+        <img src="https://picsum.photos/200/200" alt="product-5" />
+      </div>
+      <section class="products">
+        <p>So what are you waiting for?</p>
+        <button>ENTER SHOP</button>
+      </section>
+    </main>
+    <footer></footer>
+    <a class="top" href="#" style="text-decoration: none">&uarr;</a>
+    <script src="js/scrollToElement.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
