@@ -15,6 +15,9 @@ const login_success = function (response) {
 
   if (response == "login_ok!") {
     console.log("ok");
+    let uname = $("#uname").val();
+    $("#login .close-modal").click();
+    $("#login_number").text("Welcome! " + uname);
   }
 };
 
@@ -25,10 +28,11 @@ const login_error = function (request, status, error) {
 };
 
 function login() {
-  let umane = $("#name").val();
+  let umane = $("#uname").val();
   let psw = $("#psw").val();
   let info_creds = "username=" + umane + "&password=" + psw;
   console.log(info_creds);
+
   $.ajax({
     type: "POST",
     url: "login.php",
