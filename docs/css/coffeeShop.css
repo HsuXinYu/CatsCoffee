@@ -19,8 +19,7 @@ ul li {
   display: inline-block;
   width: 100px;
   height: 50px;
-  font-size: 20px;
-  text-align: center;
+  font-size: 25px;
   margin: 0px 10px;
 }
 ul li a:hover {
@@ -110,16 +109,17 @@ ul li a {
 footer {
   background-color: rgb(220, 215, 199);
   width: auto;
-  height: 110px;
+  height: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: right;
+  align-items: center;
+  padding: 10px;
 }
 .top {
   background-color: rgb(220, 215, 199);
   width: 80px;
   height: 80px;
   border-radius: 60%;
-
   text-align: center;
   line-height: 80px;
   color: #212529;
@@ -128,7 +128,7 @@ footer {
   position: fixed;
   margin: auto;
   right: 50px;
-  bottom: 50px;
+  bottom: 150px;
 }
 #login {
   background-color: rgb(220, 215, 199);
