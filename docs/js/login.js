@@ -3,11 +3,32 @@ function show() {
   $("#login").modal();
 }
 
+function login(event) {
+  event.preventDefault();
+  let umane = $("#uname").val();
+  let psw = $("#psw").val();
+  let info_creds = "username=" + umane + "&password=" + psw;
+
+  // console.log(info_creds);
+
+  $.ajax({
+    type: "POST",
+    url: "index.php",
+    data: info_creds,
+    // cache: false,
+    // success: function (response){login_success(response)},
+    success: login_success,
+    error: login_success,
+    // error: login_error,
+  });
+}
+
 const login_success = function (response) {
   response = "login_ok!";
 
   console.log("inside success");
   console.log(response);
+
   if (response == "wrong!") {
     console.log("wrong");
     alert("Your account or password is wroung!");
@@ -16,8 +37,9 @@ const login_success = function (response) {
   if (response == "login_ok!") {
     console.log("ok");
     let uname = $("#uname").val();
-    $("#login .close-modal").click();
+    $("#login .close-modal").trigger("click");
     $("#login_number").text("Welcome! " + uname);
+    $("#logout").css("display", "inline-block");
   }
 };
 
@@ -27,20 +49,8 @@ const login_error = function (request, status, error) {
   alert(request.responseText);
 };
 
-function login() {
-  let umane = $("#uname").val();
-  let psw = $("#psw").val();
-  let info_creds = "username=" + umane + "&password=" + psw;
-  console.log(info_creds);
-
-  $.ajax({
-    type: "POST",
-    url: "login.php",
-    data: info_creds,
-    cache: false,
-    success: login_success,
-    // success: function (response){login_success(response)},
-    // error: login_error,
-    error: login_success,
-  });
-}
+const logout = function () {
+  window.localStorage.clear();
+  window.location.reload(true);
+  window.location.replace("http://172.20.10.5:5500/docs/index.html");
+};

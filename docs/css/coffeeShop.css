@@ -1,3 +1,6 @@
+:root {
+  --basic-color: rgb(164, 117, 69);
+}
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +10,7 @@ main {
   text-align: center;
 }
 nav {
-  background-color: rgb(220, 215, 199);
+  background-color: var(--basic-color);
   width: auto;
   height: 125px;
   display: flex;
@@ -29,6 +32,10 @@ ul li a {
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 10px;
+  cursor: pointer;
+}
+#logout {
+  display: none;
 }
 .logo {
   width: 120px;
@@ -61,9 +68,19 @@ ul li a {
 .menu {
   max-width: 60%;
   margin: 30px auto;
-  border: dotted 2px rgb(220, 215, 199);
+  border: dotted 5px var(--basic-color);
   padding: 30px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.menu_title {
+  background-color: var(--basic-color);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 40%;
 }
 .hiddenimg {
   display: none;
@@ -107,7 +124,7 @@ ul li a {
   margin: 10px;
 }
 footer {
-  background-color: rgb(220, 215, 199);
+  background-color: var(--basic-color);
   width: auto;
   height: 100px;
   display: flex;
@@ -116,7 +133,7 @@ footer {
   padding: 10px;
 }
 .top {
-  background-color: rgb(220, 215, 199);
+  background-color: var(--basic-color);
   width: 80px;
   height: 80px;
   border-radius: 60%;
@@ -131,6 +148,6 @@ footer {
   bottom: 150px;
 }
 #login {
-  background-color: rgb(220, 215, 199);
+  background-color: var(--basic-color);
   text-align: center;
 }

@@ -21,12 +21,7 @@
         <li><a class="link" href="#menu">Menu</a></li>
         <img class="logo" src="images/logo_150x150.png" alt="logo" />
         <li>
-          <a
-            id="login_number"
-            href="#"
-            class="link"
-            onclick="show()"
-            onkeypress="show()"
+          <a id="login_number" href="#" onclick="show()" onkeypress="show()"
             >Login</a
           >
           <!-- login -->
@@ -53,18 +48,17 @@
                   type="password"
                   placeholder="Enter Password"
                   name="psw"
+                  autocomplete="off"
                   required
                 />
               </div>
               <div>
                 <button type="submit" onclick="login()">Login</button>
               </div>
-              <div>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-              </div>
             </form>
           </div>
         </li>
+        <li id="logout"><a onclick="logout()">Logout</a></li>
         <li><a href="">Shop</a></li>
         <li><img class="cart" src="images/shoppingCart_36x36.png" /></li>
       </ul>
@@ -94,9 +88,11 @@
       </div>
       <div id="menu" class="menu">
         <section>
-          <h2>Coffee</h2>
-          <img src="images/coffee_48x48.png" alt="coffee icon" />
-          <article class="item" data-menuid="french_vanilla">
+          <div class="menu_title">
+            <h2>Coffee</h2>
+            <img src="images/coffee_48x48.png" alt="coffee icon" />
+          </div>
+          <div class="item" data-menuid="french_vanilla">
             <span class="flavor"><p>French Vanilla</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -126,8 +122,8 @@
                 data-field="quantity"
               />
             </div>
-          </article>
-          <article class="item" data-menuid="caramel_macchiato">
+          </div>
+          <div class="item" data-menuid="caramel_macchiato">
             <span class="flavor"><p>Caramel Macchiato</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -157,8 +153,8 @@
                 data-field="quantity"
               />
             </div>
-          </article>
-          <article class="item" data-menuid="pumpkin_spice">
+          </div>
+          <div class="item" data-menuid="pumpkin_spice">
             <span class="flavor"><p>Pumpkin Spice</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -188,8 +184,8 @@
                 data-field="quantity"
               />
             </div>
-          </article>
-          <article class="item" data-menuid="hazelnut">
+          </div>
+          <div class="item" data-menuid="hazelnut">
             <span class="flavor"><p>Hazelnut</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -219,8 +215,8 @@
                 data-field="quantity"
               />
             </div>
-          </article>
-          <article class="item" data-menuid="mocha">
+          </div>
+          <div class="item" data-menuid="mocha">
             <span class="flavor"><p>Mocha</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -250,12 +246,14 @@
                 data-field="quantity"
               />
             </div>
-          </article>
+          </div>
         </section>
         <section>
-          <h2>Desserts</h2>
-          <img src="images/cake_48x48.png" alt="cake icon" />
-          <article class="item" data-menuid="donut">
+          <div class="menu_title">
+            <h2>Desserts</h2>
+            <img src="images/cake_48x48.png" alt="cake icon" />
+          </div>
+          <div class="item" data-menuid="donut">
             <span class="dessert"><p>Donut</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -285,8 +283,8 @@
                 data-field="quantity"
               />
             </div>
-          </article>
-          <article class="item" data-menuid="cherry_pie">
+          </div>
+          <div class="item" data-menuid="cherry_pie">
             <span class="dessert"><p>Cherry Pie</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -316,8 +314,8 @@
                 data-field="quantity"
               />
             </div>
-          </article>
-          <article class="item" data-menuid="cheese_cake">
+          </div>
+          <div class="item" data-menuid="cheese_cake">
             <span class="dessert"><p>Cheese Cake</p></span
             ><span class="hiddenimg"
               ><img src="" width="200px" height="200px"
@@ -347,7 +345,7 @@
                 data-field="quantity"
               />
             </div>
-          </article>
+          </div>
         </section>
         <div class="ordered">
           <p>Total Price:</p>
