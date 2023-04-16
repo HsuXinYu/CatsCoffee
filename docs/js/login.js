@@ -3,8 +3,8 @@ function show() {
   $("#login").modal();
 }
 
-function login(event) {
-  event.preventDefault();
+function login(e) {
+  e.preventDefault();
   let umane = $("#uname").val();
   let psw = $("#psw").val();
   let info_creds = "username=" + umane + "&password=" + psw;
@@ -15,7 +15,7 @@ function login(event) {
     type: "POST",
     url: "index.php",
     data: info_creds,
-    // cache: false,
+    cache: false,
     // success: function (response){login_success(response)},
     success: login_success,
     error: login_success,
@@ -37,7 +37,7 @@ const login_success = function (response) {
   if (response == "login_ok!") {
     console.log("ok");
     let uname = $("#uname").val();
-    $("#login .close-modal").trigger("click");
+    $("#login .close-modal").click();
     $("#login_number").text("Welcome! " + uname);
     $("#logout").css("display", "inline-block");
   }
