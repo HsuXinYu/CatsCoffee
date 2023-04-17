@@ -18,20 +18,20 @@ function login(e) {
     cache: false,
     // success: function (response){login_success(response)},
     success: login_success,
-    error: login_success,
-    // error: login_error,
+    // error: login_success,
+    error: login_error,
   });
 }
 
 const login_success = function (response) {
-  response = "login_ok!";
+  response = "wrong!";
 
   console.log("inside success");
   console.log(response);
 
   if (response == "wrong!") {
     console.log("wrong");
-    alert("Your account or password is wroung!");
+    alert("Your account or password is wrong!");
   }
 
   if (response == "login_ok!") {
@@ -45,7 +45,9 @@ const login_success = function (response) {
 
 const login_error = function (request, status, error) {
   console.log("inside error");
-  console.log(request, status, error);
+  console.log(request);
+  console.log(status);
+  console.log(error);
   alert(request.responseText);
 };
 
