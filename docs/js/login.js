@@ -18,21 +18,16 @@ function login(e) {
     cache: false,
     // success: function (response){login_success(response)},
     success: login_success,
-    // error: login_success,
-    error: login_error,
+    error: login_success,
+    // error: login_error,
   });
 }
 
 const login_success = function (response) {
-  response = "wrong!";
+  response = "login_ok!";
 
   console.log("inside success");
   console.log(response);
-
-  if (response == "wrong!") {
-    console.log("wrong");
-    alert("Your account or password is wrong!");
-  }
 
   if (response == "login_ok!") {
     console.log("ok");
@@ -41,6 +36,11 @@ const login_success = function (response) {
     $("#login_number").text("Welcome! " + uname);
     $("#logout").css("display", "inline-block");
   }
+
+  if (response == "login_wrong!") {
+    console.log("wrong");
+    alert("Your account or password is wrong!");
+  }
 };
 
 const login_error = function (request, status, error) {
@@ -48,7 +48,7 @@ const login_error = function (request, status, error) {
   console.log(request);
   console.log(status);
   console.log(error);
-  alert(request.responseText);
+  alert(request, status, error);
 };
 
 const logout = function () {
