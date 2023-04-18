@@ -33,7 +33,9 @@ const login_success = function (response) {
     console.log("ok");
     let uname = $("#uname").val();
     $("#login .close-modal").click();
-    $("#login_number").text("Welcome! " + uname);
+    $("#login_number").text("Welcome!" + uname);
+    $("#login_number").css("font-size", "1rem");
+    $("#login_form").css("display", "none");
     $("#logout").css("display", "inline-block");
   }
 

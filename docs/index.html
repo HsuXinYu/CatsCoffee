@@ -25,9 +25,9 @@
             >Login</a
           >
           <!-- login -->
-          <div id="login" class="login" style="display: none">
+          <div id="login" class="login">
             <!-- login content-->
-            <form method="post">
+            <form id="login_form" method="post">
               <div class="img-container">
                 <img class="logo" src="images/logo_150x150.png" alt="logo" />
               </div>
@@ -51,13 +51,11 @@
                   required
                 />
               </div>
-              <div>
-                <button type="submit" onclick="login(event)">Login</button>
-              </div>
+              <button type="submit" onclick="login(event)">Login</button>
             </form>
+            <button id="logout" onclick="logout()">Logout</button>
           </div>
         </li>
-        <li id="logout"><a onclick="logout()">Logout</a></li>
         <li><a href="">Shop</a></li>
         <li><img class="cart" src="images/shoppingCart_36x36.png" /></li>
       </ul>
