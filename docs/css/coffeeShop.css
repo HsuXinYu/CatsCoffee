@@ -85,18 +85,19 @@ ul li a {
 .hiddenimg {
   display: none;
   position: absolute;
-  /* left: 10px;
-  top: 400px; */
+}
+.hiddenimg img {
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2), 0 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 .flavor:hover ~ .hiddenimg {
   display: block;
   position: absolute;
-  z-index: 2;
+  z-index: 1;
 }
 .dessert:hover ~ .hiddenimg {
   display: block;
   position: absolute;
-  z-index: 2;
+  z-index: 1;
 }
 .flavor p,
 .dessert p {
