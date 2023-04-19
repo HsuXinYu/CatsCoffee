@@ -18,8 +18,8 @@ function login(e) {
     cache: false,
     // success: function (response){login_success(response)},
     success: login_success,
-    error: login_success,
-    // error: login_error,
+    // error: login_success,
+    error: login_error,
   });
 }
 

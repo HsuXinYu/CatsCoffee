@@ -1,3 +1,4 @@
+"use strict";
 class MenuItem {
   constructor(id, name, price, menu_img) {
     this.id = id;
