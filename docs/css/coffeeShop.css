@@ -34,14 +34,17 @@ ul li a {
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 20px;
+  border-radius: 5px;
   cursor: pointer;
 }
 ul li a:hover {
   background-color: rgb(190, 185, 170);
 }
 #login {
-  font-size: var(--fontsize);
+  background-color: var(--basic-color);
   color: rgb(255, 255, 255);
+  font-size: var(--fontsize);
+  text-align: center;
 }
 #login button {
   background-color: var(--basic-color);
@@ -54,11 +57,20 @@ ul li a:hover {
   cursor: pointer;
 }
 #login,
+#sing_up_form,
+#delete_acc,
 #logout {
   margin: 10px;
   display: none;
 }
-
+#sing_up_form {
+  text-align: left;
+  flex-direction: row;
+}
+#sing_up_form label {
+}
+#sing_up_form input {
+}
 .cart {
   margin: 0px 10px;
 }
@@ -160,8 +172,4 @@ footer {
   margin: auto;
   right: 50px;
   bottom: 150px;
-}
-#login {
-  background-color: var(--basic-color);
-  text-align: center;
 }
