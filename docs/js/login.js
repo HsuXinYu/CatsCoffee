@@ -9,7 +9,13 @@ function login(e) {
   let umane = $("#uname").val();
   let psw = $("#psw").val();
   let info_creds = "username=" + umane + "&password=" + psw;
+
   // console.log(info_creds);
+
+  if ((umane === "" && psw === "") || umane === "" || psw === "") {
+    alert("You must to type something!");
+    return;
+  }
 
   $.ajax({
     type: "POST",
@@ -23,7 +29,6 @@ function login(e) {
 }
 
 const login_success = function (response) {
-  console.log(response);
   // response = "login_ok!";
 
   console.log("inside success");
@@ -62,7 +67,7 @@ const login_error = function (request, status, error) {
 const logout = function () {
   window.localStorage.clear();
   window.location.reload(true);
-  window.location.replace("http://192.168.94.82:5500/docs/index.html");
+  window.location.replace("http://172.20.10.5:5500/docs/index.html");
 };
 
 function show_sign_up() {
@@ -90,6 +95,11 @@ function sign_up(e) {
 
   // console.log(info_creds);
 
+  if (phone !== /[0-9]/) {
+    alert("Please type correct phone number!");
+    return;
+  }
+
   $.ajax({
     type: "POST",
     url: "http://127.0.0.1:5000/sign_up/coffee",
@@ -101,8 +111,6 @@ function sign_up(e) {
 }
 
 const sign_up_success = function (response) {
-  console.log(response);
-
   console.log("inside success");
   console.log(response);
 
