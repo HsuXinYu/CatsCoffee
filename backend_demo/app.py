@@ -11,7 +11,7 @@ if __package__ is None or __package__ == '':
     BASE_PATH = os.path.join(os.path.dirname(__file__),'..')
     sys.path.append(BASE_PATH)
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path="", static_folder="templates")
 
 CORS(app)
 # the name of the database; add path if necessary
