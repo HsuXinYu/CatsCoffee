@@ -139,6 +139,34 @@ def delete_account():
     return response
 
 
+@app.route('/sign_up/coffee', methods=['POST','GET'])
+def signup_coffee():
+    # print(request)
+    if request.is_json:
+        content = request.get_json()
+    else:
+        content = request.values
+    print(content)
+
+    
+    name = content['name']
+    address = content['address']
+    phone = content['phone']
+    email = content['email']
+    username = content['uname']
+    password = content['psw']
+
+    users = UserInfo.query.filter_by(username=username).all()
+    if len(users) > 0:
+        return "sign_up_wrong!"
+    
+
+    new_user = UserInfo(username, password)
+    db.session.add(new_user)
+    db.session.commit() 
+    result = "sign_up_ok!"
+    return result
+
 @app.route('/login/coffee', methods=['POST','GET'])
 def login_coffee():
     print(request.values)
