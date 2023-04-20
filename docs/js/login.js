@@ -9,7 +9,6 @@ function login(e) {
   let umane = $("#uname").val();
   let psw = $("#psw").val();
   let info_creds = "username=" + umane + "&password=" + psw;
-
   // console.log(info_creds);
 
   $.ajax({
