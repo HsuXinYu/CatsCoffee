@@ -4,6 +4,7 @@ from flask_socketio import SocketIO
 # from flask.ext.cors import CORS, cross_origin
 from flask_cors import CORS
 
+# python.exe app.py
 
 import os
 import sys
