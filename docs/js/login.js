@@ -75,7 +75,7 @@ function show_sign_up() {
   $("#sing_up_form").css("display", "inline-block");
 }
 
-function sign_up(e) {
+function sign_up_to(e) {
   e.preventDefault();
   let name = $("#name").val();
   let address = $("#address").val();
@@ -93,13 +93,14 @@ function sign_up(e) {
     sign_up_psw: $("#sign_up_psw").val(),
   };
 
-  // console.log(info_creds);
+  console.log(info_creds);
 
-  if (phone !== /[0-9]/) {
-    alert("Please type correct phone number!");
-    return;
-  }
+  // if (phone !== /[0-9]/) {
+  //   alert("Please type correct phone number!");
+  //   return;
+  // }
 
+  console.log("http://127.0.0.1:5000/sign_up/coffee");
   $.ajax({
     type: "POST",
     url: "http://127.0.0.1:5000/sign_up/coffee",
@@ -116,7 +117,7 @@ const sign_up_success = function (response) {
 
   if (response == "sign_up_ok!") {
     console.log("ok");
-    alert("Your sing up is success!");
+    alert("Your sign up is success!");
     $("#login .close-modal").click();
   }
 

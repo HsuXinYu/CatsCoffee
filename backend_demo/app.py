@@ -155,8 +155,8 @@ def signup_coffee():
     address = content['address']
     phone = content['phone']
     email = content['email']
-    username = content['uname']
-    password = content['psw']
+    username = content['sign_up_uname']
+    password = content['sign_up_psw']
 
     users = UserInfo.query.filter_by(username=username).all()
     if len(users) > 0:
