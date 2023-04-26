@@ -1,5 +1,6 @@
 $(document).ready(function () {});
 
+const BASE_URL = "http://127.0.0.1:5000";
 function show() {
   $("#login").modal();
 }
@@ -19,7 +20,7 @@ function login(e) {
 
   $.ajax({
     type: "POST",
-    url: "http://127.0.0.1:5000/login/coffee",
+    url: BASE_URL + "/login/coffee",
     data: info_creds,
     // success: function (response){login_success(response)},
     success: login_success,
@@ -67,7 +68,7 @@ const login_error = function (request, status, error) {
 const logout = function () {
   window.localStorage.clear();
   window.location.reload(true);
-  window.location.replace("http://172.20.10.5:5500/docs/index.html");
+  window.location.replace(BASE_URL);
 };
 
 function show_sign_up() {
@@ -100,10 +101,10 @@ function sign_up_to(e) {
   //   return;
   // }
 
-  console.log("http://127.0.0.1:5000/sign_up/coffee");
+  console.log(BASE_URL + "/sign_up/coffee");
   $.ajax({
     type: "POST",
-    url: "http://127.0.0.1:5000/sign_up/coffee",
+    url: BASE_URL + "/sign_up/coffee",
     data: JSON.stringify(info_creds),
     contentType: "application/json",
     success: sign_up_success,
