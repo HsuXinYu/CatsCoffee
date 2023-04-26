@@ -21,13 +21,6 @@
     />
   </head>
   <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of eb3190a (RWD)
-=======
->>>>>>> parent of eb3190a (RWD)
     <nav>
       <ul>
         <li><a class="link" href="#about">About</a></li>
@@ -38,6 +31,7 @@
           <a id="login_number" href="#" onclick="show()" onkeypress="show()"
             >Login</a
           >
+
           <!-- login -->
           <div id="login" class="login">
             <!-- login content-->
@@ -63,55 +57,9 @@
                 required
               />
               <br />
-              <button type="submit" onclick="show_sign_up()">Sign Up</button>
               <button type="submit" onclick="login(event)">Login</button>
+              <button type="submit" onclick="show_sign_up()">Sign Up</button>
             </form>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    <header id="header">
-      <nav>
-        <ul>
-          <li><a class="link" href="#about">About</a></li>
-          <li><a class="link" href="#news">News</a></li>
-          <img class="logo" src="images/logo_150x150.png" alt="logo" />
-          <li class="login">
-            <a id="login_number" href="#" onclick="show()" onkeypress="show()"
-              >Login</a
-            >
-            <!-- login -->
-            <div id="login">
-              <!-- login content-->
-              <form id="login_form" method="post">
-                <div class="img-container">
-                  <img class="logo" src="images/logo_150x150.png" alt="logo" />
-                </div>
-                <label for="uname"><b>Username</b></label>
-                <input
-                  id="uname"
-                  type="text"
-                  name="uname"
-                  placeholder="Enter Username"
-                  required
-                />
-                <br />
-                <label for="psw"><b>Password</b></label>
-                <input
-                  id="psw"
-                  type="password"
-                  name="psw"
-                  placeholder="Enter Password"
-                  required
-                />
-                <br />
-                <button type="submit" onclick="show_sign_up()">Sign Up</button>
-                <button type="submit" onclick="login(event)">Login</button>
-              </form>
->>>>>>> parent of dd7dcf5 (RWD)
-=======
->>>>>>> parent of eb3190a (RWD)
-=======
->>>>>>> parent of eb3190a (RWD)
 
             <!-- sign up content-->
             <form id="sing_up_form" method="post">
@@ -172,12 +120,8 @@
                 required
               />
               <br />
-              <button id="cancel" type="reset" onclick="logout()">
-                Cancel
-              </button>
-              <button id="sign_up" type="submit" onclick="sign_up(event)">
-                Sign Up
-              </button>
+              <button id="cancel" onclick="logout()">Cancel</button>
+              <button type="submit" onclick="sign_up(event)">Sign Up</button>
             </form>
             <button id="logout" onclick="logout()">Logout</button>
             <button id="delete_acc" onclick="delete_acc()">
@@ -491,10 +435,10 @@
         <img src="https://picsum.photos/200/200?random=4" alt="product-4" />
         <img src="https://picsum.photos/200/200?random=5" alt="product-5" />
       </div>
-      <div class="products">
+      <section class="products">
         <p>So what are you waiting for?</p>
         <button>ENTER SHOP</button>
-      </div>
+      </section>
     </main>
     <footer>
       <p>© 2023 Cat's Coffee All Rights Reserved.</p>
