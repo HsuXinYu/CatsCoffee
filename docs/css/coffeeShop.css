@@ -139,8 +139,8 @@ ul li:hover {
 .dessert p {
   display: inline-block;
   text-align: left;
-  padding: 10px;
   width: 20%;
+  padding: 10px;
 }
 .price {
   display: inline-block;
@@ -192,8 +192,8 @@ footer p {
   border-radius: 50%;
   color: #decba1;
   position: fixed;
-  right: 50px;
-  bottom: 150px;
+  right: 5%;
+  top: 80%;
 }
 
 @media (max-width: 996px) {
