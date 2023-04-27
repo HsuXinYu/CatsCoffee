@@ -1,6 +1,7 @@
 $(document).ready(function () {});
 
 const BASE_URL = "http://127.0.0.1:5000";
+
 function show() {
   $("#login").modal();
 }
@@ -39,8 +40,8 @@ const login_success = function (response) {
     console.log("ok");
     let uname = $("#uname").val();
     $("#login .close-modal").click();
-    $("#login_number").text("Welcome!" + uname);
-    $("#login_number").css("font-size", "1rem");
+    $("#login_member").text("Welcome!" + uname);
+    $("#login_member").css("font-size", "1rem");
     $("#login_form").css("display", "none");
     $("#logout").css("display", "inline-block");
     $("#delete_acc").css("display", "inline-block");
