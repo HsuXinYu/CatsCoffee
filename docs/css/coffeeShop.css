@@ -25,14 +25,14 @@ header {
   top: 0px;
   text-align: center;
 }
-.wave {
+/* .wave {
   background-color: var(--background-color);
   width: 100%;
   height: 150%;
   position: absolute;
   clip-path: ellipse(15% 50% at 25% 40%);
   z-index: -1;
-}
+} */
 .logo {
   display: inline-block;
   width: 120px;
@@ -40,19 +40,18 @@ header {
   margin: 0 14% 0 7%;
 }
 ul li {
-  font-size: 1.5rem;
   display: inline-block;
   width: 8%;
-  height: 50px;
+  padding: 5px;
+  border-radius: 5px;
 }
 ul li a {
   color: var(--font-color);
   text-decoration: none;
-  padding: 20px;
-  border-radius: 5px;
+  font-size: 1.5rem;
   cursor: pointer;
 }
-ul li a:hover {
+ul li:hover {
   background-color: rgb(190, 185, 170);
 }
 #login {
