@@ -66,12 +66,6 @@ const login_error = function (request, status, error) {
   alert(request, status, error);
 };
 
-const logout = function () {
-  window.localStorage.clear();
-  window.location.reload(true);
-  window.location.replace(BASE_URL);
-};
-
 function show_sign_up() {
   $("#login_form").css("display", "none");
   $("#sing_up_form").css("display", "inline-block");
@@ -97,10 +91,22 @@ function sign_up_to(e) {
 
   console.log(info_creds);
 
-  // if (phone !== /[0-9]/) {
-  //   alert("Please type correct phone number!");
-  //   return;
-  // }
+  if (
+    name === "" ||
+    address === "" ||
+    phone === "" ||
+    email === "" ||
+    sign_up_uname === "" ||
+    sign_up_psw === ""
+  ) {
+    alert("You should fill out the form!");
+    return;
+  }
+
+  let phone_re = new RegExp(/\d{10}/);
+  if (!phone_re.test(phone)) {
+    alert("Your phone number is not currect!");
+  }
 
   console.log(BASE_URL + "/sign_up/coffee");
   $.ajax({
@@ -130,6 +136,45 @@ const sign_up_success = function (response) {
 };
 
 const sign_up_error = function (request, status, error) {
+  console.log("inside error");
+  console.log(request);
+  console.log(status);
+  console.log(error);
+  alert(request, status, error);
+};
+
+const logout = function () {
+  window.localStorage.clear();
+  window.location.reload(true);
+  window.location.replace(BASE_URL);
+};
+
+const delete_acc = function (e) {
+  e.preventDefault();
+  let uname = $("#uname").val();
+
+  console.log(uname);
+
+  console.log(BASE_URL + "/delete_acc/coffee");
+  $.ajax({
+    type: "POST",
+    url: BASE_URL + "/sign_up/coffee",
+    data: JSON.stringify(uname),
+    contentType: "application/json",
+    success: delete_acc_success,
+    error: delete_acc_error,
+  });
+};
+
+const delete_acc_success = function (request, status, error) {
+  if (response == "delete_acc_ok!") {
+    console.log("ok");
+    alert("Your account has been deleted!");
+    $("#login .close-modal").click();
+  }
+};
+
+const delete_acc_error = function (request, status, error) {
   console.log("inside error");
   console.log(request);
   console.log(status);

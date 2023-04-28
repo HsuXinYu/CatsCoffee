@@ -63,7 +63,7 @@ let menu_data = [
 let flavor = document.querySelectorAll(".flavor");
 // let hiddenimg = document.querySelectorAll(".hiddenimg");
 for (let i = 0; i < flavor.length; i++) {
-  flavor[i].addEventListener("mouseover", function (e) {
+  flavor[i].onmouseover = function (e) {
     // console.log(e.target.parentElement.parentElement.dataset.menuid);
     for (let j = 0; j < menu_data.length; j++) {
       if (
@@ -83,12 +83,12 @@ for (let i = 0; i < flavor.length; i++) {
         hiddenimg.children[0].src = menu_data[j].menu_img;
       }
     }
-  });
+  };
 }
 
 let dessert = document.querySelectorAll(".dessert");
 for (let i = 0; i < dessert.length; i++) {
-  dessert[i].addEventListener("mouseover", function (e) {
+  dessert[i].onmouseover = function (e) {
     for (let j = 0; j < menu_data.length; j++) {
       if (
         e.target.parentElement.parentElement.dataset.menuid == menu_data[j].id
@@ -105,7 +105,7 @@ for (let i = 0; i < dessert.length; i++) {
         hiddenimg.children[0].src = menu_data[j].menu_img;
       }
     }
-  });
+  };
 }
 
 document.querySelectorAll(".minus").forEach(function (e) {

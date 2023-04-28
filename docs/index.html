@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cat's Coffee</title>
     <link rel="stylesheet" href="css/coffeeShop.css" />
+    <!-- icon -->
     <script
       src="https://kit.fontawesome.com/4a03b9c5b3.js"
       crossorigin="anonymous"
     ></script>
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link
@@ -118,7 +120,7 @@
                 </button>
               </form>
               <button id="logout" onclick="logout()">Logout</button>
-              <button id="delete_acc" onclick="delete_acc()">
+              <button id="delete_acc" onclick="delete_acc(event)">
                 Delete Member
               </button>
             </div>
@@ -433,6 +435,19 @@
         <p>So what are you waiting for?</p>
         <button>ENTER SHOP</button>
       </div>
+      <div>
+        <!-- <a target="map" href="https://pse.is/4xlhe6">台北分店</a>
+        <a target="map" href="https://pse.is/4xkb94">新竹分店</a> -->
+        <button class="shop" value="taipei">台北分店</button>
+        <button class="shop" value="hsinchu">新竹分店</button>
+      </div>
+      <iframe
+        id="map"
+        name="map"
+        src="https://pse.is/4xlhe6"
+        width="500px"
+        height="500px"
+      ></iframe>
     </main>
     <footer>
       <div class="f-icon">
@@ -443,7 +458,7 @@
       <p>© 2023 Cat's Coffee All Rights Reserved.</p>
     </footer>
     <a class="top" href="#">&uarr;</a>
-    <script src="js/scrollToElement.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/login.js"></script>
     <script src="js/menu.js"></script>
   </body>
