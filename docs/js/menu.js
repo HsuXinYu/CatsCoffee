@@ -1,4 +1,4 @@
-const coffee = [
+const coffees = [
   {
     id: 1,
     name: "French Vanilla",
@@ -30,7 +30,7 @@ const coffee = [
     price: 120,
   },
 ];
-const dessert = [
+const desserts = [
   {
     id: 6,
     name: "Donut",
@@ -87,17 +87,17 @@ app.component("menu-display", {
                 class="minus"
                 type="button"
                 value="-"
-                @click="deleteOrder"
+                @click="deleteOrder_coffee(index)"
               />
               <input
                 class="quantity_field"
                 type="number"
-                value="0"
+                :value="coffee_item_vals[index]"
                 step="1"
                 min="0"
                 max="10"
               />
-              <input class="plus" type="button" value="+" @click="order" />
+              <input class="plus" type="button" value="+" @click="order_coffee(index)" />
             </div>
           </div>
           <div class="menu_title">
@@ -113,18 +113,18 @@ app.component("menu-display", {
                 class="minus"
                 type="button"
                 value="-"
-                @click="deleteOrder"
+                @click="deleteOrder_dessert(index)"
               />
               <input
                 class="quantity_field"
                 type="number"
-                value="0"
+                v-model="dessert_item_vals[index]"
                 name="quantity"
                 step="1"
                 min="0"
                 max="10"
               />
-              <input class="plus" type="button" value="+" @click="order" />
+              <input class="plus" type="button" value="+" @click="order_dessert(index)" />
             </div>
           </div>
           <div class="ordered">
@@ -157,8 +157,11 @@ app.component("menu-display", {
 
   data() {
     return {
-      coffee_items: coffee,
-      dessert_items: dessert,
+      coffee_items: coffees,
+      dessert_items: desserts,
+      coffee_item_vals: [0, 0, 0, 0, 0, 0, 0, 0],
+      dessert_item_vals: [0, 0, 0, 0, 0],
+      test_val: 0,
     };
   },
   methods: {
@@ -172,7 +175,36 @@ app.component("menu-display", {
       if (currentVal >= 0) {
         c.value = currentVal + 1;
       }
-      total();
+    },
+    order_coffee(index) {
+      let currentVal = this.coffee_item_vals[index];
+      if (currentVal >= 0) {
+        this.coffee_item_vals[index] += 1;
+      }
+    },
+    order_dessert(index) {
+      let currentVal = this.dessert_item_vals[index];
+      if (currentVal >= 0) {
+        this.dessert_item_vals[index] += 1;
+      }
+    },
+    deleteOrder_coffee(index) {
+      // console.log(e.target);
+      let currentVal = this.coffee_item_vals[index];
+      // console.log(c.value);
+
+      if (currentVal > 0) {
+        this.coffee_item_vals[index] = currentVal - 1;
+      }
+    },
+    deleteOrder_dessert(index) {
+      // console.log(e.target);
+      let currentVal = this.dessert_item_vals[index];
+      // console.log(c.value);
+
+      if (currentVal > 0) {
+        this.dessert_item_vals[index] = currentVal - 1;
+      }
     },
     deleteOrder(e) {
       // console.log(e.target);
@@ -199,19 +231,16 @@ app.component("menu-display", {
   },
   computed: {
     total() {
-      let quantities = document.querySelectorAll(".quantity_field");
       let total = 0;
-      console.log(quantities);
-      // for (let i = 0; i < quantities.length; i++) {
-      //   console.log(quantities[i].id, quantities[i].value);
-      //   for (let j = 0; j < menu_data.length; j++) {
-      //     if (quantities[i].id == menu_data[j].id) {
-      //       total = total + parseInt(quantities[i].value) * menu_data[j].price;
-      //       // console.log(quantities[i].id, total);
-      //     }
-      //   }
-      // }
-      // console.log(total);
+      for (let i = 0; i < this.coffee_items.length; i++) {
+        const price = this.coffee_items[i].price * this.coffee_item_vals[i];
+        total += price;
+      }
+      for (let i = 0; i < this.dessert_items.length; i++) {
+        const price = this.dessert_items[i].price * this.dessert_item_vals[i];
+        total += price;
+      }
+      console.log(total);
       return total;
     },
 
