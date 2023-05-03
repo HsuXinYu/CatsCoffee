@@ -87,17 +87,17 @@ app.component("menu-display", {
                 class="minus"
                 type="button"
                 value="-"
-                @click="deleteOrder_coffee(index)"
+                @click="deleteOrder"
               />
               <input
                 class="quantity_field"
                 type="number"
-                :value="coffee_item_vals[index]"
+                v-model="coffee_item_vals[index]"
                 step="1"
                 min="0"
                 max="10"
               />
-              <input class="plus" type="button" value="+" @click="order_coffee(index)" />
+              <input class="plus" type="button" value="+" @click="order" />
             </div>
           </div>
           <div class="menu_title">
@@ -113,7 +113,7 @@ app.component("menu-display", {
                 class="minus"
                 type="button"
                 value="-"
-                @click="deleteOrder_dessert(index)"
+                @click="deleteOrder"
               />
               <input
                 class="quantity_field"
@@ -124,7 +124,7 @@ app.component("menu-display", {
                 min="0"
                 max="10"
               />
-              <input class="plus" type="button" value="+" @click="order_dessert(index)" />
+              <input class="plus" type="button" value="+" @click="order" />
             </div>
           </div>
           <div class="ordered">
@@ -175,36 +175,7 @@ app.component("menu-display", {
       if (currentVal >= 0) {
         c.value = currentVal + 1;
       }
-    },
-    order_coffee(index) {
-      let currentVal = this.coffee_item_vals[index];
-      if (currentVal >= 0) {
-        this.coffee_item_vals[index] += 1;
-      }
-    },
-    order_dessert(index) {
-      let currentVal = this.dessert_item_vals[index];
-      if (currentVal >= 0) {
-        this.dessert_item_vals[index] += 1;
-      }
-    },
-    deleteOrder_coffee(index) {
-      // console.log(e.target);
-      let currentVal = this.coffee_item_vals[index];
-      // console.log(c.value);
-
-      if (currentVal > 0) {
-        this.coffee_item_vals[index] = currentVal - 1;
-      }
-    },
-    deleteOrder_dessert(index) {
-      // console.log(e.target);
-      let currentVal = this.dessert_item_vals[index];
-      // console.log(c.value);
-
-      if (currentVal > 0) {
-        this.dessert_item_vals[index] = currentVal - 1;
-      }
+      c.dispatchEvent(new Event("input", { bubbles: true }));
     },
     deleteOrder(e) {
       // console.log(e.target);
@@ -216,6 +187,7 @@ app.component("menu-display", {
       if (currentVal > 0) {
         c.value = currentVal - 1;
       }
+      c.dispatchEvent(new Event("input", { bubbles: true }));
     },
     changeBranch(e) {
       console.log(e.target.value);
