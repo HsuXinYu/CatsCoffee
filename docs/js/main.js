@@ -206,7 +206,8 @@ const delete_acc_error = function (request, status, error) {
 //Vue
 const app = Vue.createApp({
   data() {
-    return { showShop: false, showCart: true, cartItems: [] };
+    return { showShop: true, showCart: true, cartItems: [] };
   },
   methods: {},
+  computed: {},
 });

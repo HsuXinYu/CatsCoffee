@@ -30,18 +30,18 @@ header {
 }
 ul li {
   display: inline-block;
-  width: 8%;
-  padding: 5px;
-  border-radius: 5px;
+  width: 5%;
+  margin: 2%;
 }
-ul li a,
-ul li i {
+ul li a {
   color: var(--font-color);
+  padding: 10px;
+  border-radius: 5px;
   text-decoration: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
-ul li:hover {
+ul li a:hover {
   background-color: rgb(190, 185, 170);
 }
 #login {
@@ -180,7 +180,7 @@ ul li:hover {
   height: 70%;
   position: fixed;
   right: 0;
-  top: 125px;
+  top: 130px;
   padding: 30px;
 }
 .cart-item {

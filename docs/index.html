@@ -26,9 +26,11 @@
       <header>
         <nav>
           <ul>
-            <li><a class="link" href="#about">About</a></li>
-            <li><a class="link" href="#news">News</a></li>
-            <li><a class="link" href="#menu">Menu</a></li>
+            <li>
+              <a class="link" href="#about" v-if="!showShop">About</a>
+            </li>
+            <li><a class="link" href="#news" v-if="!showShop">News</a></li>
+            <li><a class="link" href="#menu" v-if="!showShop">Menu</a></li>
             <img class="logo" src="images/logo_150x150.png" alt="logo" />
             <li class="login">
               <a id="login_member" href="#" onclick="show()" onkeypress="show()"
@@ -62,7 +64,6 @@
                   </button>
                   <button type="submit" onclick="login(event)">Login</button>
                 </form>
-
                 <!-- sign up content-->
                 <form id="sing_up_form" method="post" onsubmit="return false;">
                   <h1>Sign Up</h1>
@@ -173,6 +174,7 @@
       </footer>
       <a class="top" href="#">&uarr;</a>
     </div>
+
     <!-- Import App -->
     <script src="js/main.js"></script>
 

@@ -159,9 +159,8 @@ app.component("menu-display", {
     return {
       coffee_items: coffees,
       dessert_items: desserts,
-      coffee_item_vals: [0, 0, 0, 0, 0, 0, 0, 0],
-      dessert_item_vals: [0, 0, 0, 0, 0],
-      test_val: 0,
+      coffee_item_vals: coffees.map((v) => 0),
+      dessert_item_vals: desserts.map((v) => 0),
     };
   },
   methods: {
@@ -215,8 +214,5 @@ app.component("menu-display", {
       console.log(total);
       return total;
     },
-
-    // document.querySelectorAll(".quantity_field").forEach(function (e) {
-    //   e.onchange = clacTotal;},
   },
 });
