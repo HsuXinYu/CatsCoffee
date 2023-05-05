@@ -146,15 +146,15 @@
         </nav>
       </header>
       <menu-display v-if="!showShop"></menu-display>
-      <shop-display v-else></shop-display>
+      <shop-display v-else @add-to-cart="updateCart"></shop-display>
       <div class="cart_list" v-if="showCart">
         <h3>購物車</h3>
-        <div class="cart-item" v-for="(item,index) in cartItems">
+        <div class="cart-item" v-for="(item, index) in cartItems">
           <img :src="item.img" />
           <div>
             {{item.name}}
             <br />
-            NT$ {{item, price}}
+            NT$ {{item.price}}
           </div>
           <a href="#" @click="removeCart(index)">移除</a>
         </div>

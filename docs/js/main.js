@@ -204,10 +204,70 @@ const delete_acc_error = function (request, status, error) {
 };
 
 //Vue
+const coffeeBeans = [
+  {
+    id: 1,
+    name: "咖啡豆1號",
+    img: "images/CoffeeBeans.jpg",
+    qty: 12,
+    price: 299,
+  },
+  {
+    id: 2,
+    name: "咖啡豆2號",
+    img: "images/CoffeeBeans.jpg",
+    qty: 20,
+    price: 299,
+  },
+  {
+    id: 3,
+    name: "咖啡豆3號",
+    img: "images/CoffeeBeans.jpg",
+    qty: 20,
+    price: 299,
+  },
+  {
+    id: 4,
+    name: "咖啡豆4號",
+    img: "images/CoffeeBeans.jpg",
+    qty: 20,
+    price: 299,
+  },
+  {
+    id: 5,
+    name: "咖啡豆5號",
+    img: "images/CoffeeBeans.jpg",
+    qty: 20,
+    price: 299,
+  },
+];
+
 const app = Vue.createApp({
   data() {
-    return { showShop: true, showCart: true, cartItems: [] };
+    return {
+      showShop: true,
+      showCart: true,
+      cartItems: [],
+    };
   },
-  methods: {},
-  computed: {},
+  methods: {
+    updateCart(index) {
+      console.log(index);
+      this.cartItems.push(coffeeBeans[index]);
+      console.log(this.cartItems);
+    },
+    // removeCart(index) {
+    //   this.cartItems.splice(index, 1);
+    // },
+  },
+  computed: {
+    total() {
+      if (this.cartItems.length > 0) {
+        return this.cartItems.map((data) => data.price).reduce((a, b) => a + b);
+        console.log(total);
+      } else {
+        return 0;
+      }
+    },
+  },
 });
