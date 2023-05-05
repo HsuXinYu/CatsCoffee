@@ -245,8 +245,8 @@ const coffeeBeans = [
 const app = Vue.createApp({
   data() {
     return {
-      showShop: true,
-      showCart: true,
+      showShop: false,
+      showCart: false,
       cartItems: [],
     };
   },
@@ -256,15 +256,14 @@ const app = Vue.createApp({
       this.cartItems.push(coffeeBeans[index]);
       console.log(this.cartItems);
     },
-    // removeCart(index) {
-    //   this.cartItems.splice(index, 1);
-    // },
+    removeCart(index) {
+      this.cartItems.splice(index, 1);
+    },
   },
   computed: {
     total() {
       if (this.cartItems.length > 0) {
         return this.cartItems.map((data) => data.price).reduce((a, b) => a + b);
-        console.log(total);
       } else {
         return 0;
       }
