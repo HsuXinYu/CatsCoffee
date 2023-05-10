@@ -156,12 +156,14 @@
             <br />
             NT$ {{item.price}}
           </div>
-          <a href="#" @click="removeCart(index)">移除</a>
+          <a class="cart-button" href="#" @click="removeCart(index)">移除</a>
         </div>
         <div v-if="cartItems.length === 0">你還沒購買任何商品唷!</div>
         <div v-else>小計 NT$ {{total}}</div>
         <template v-if="cartItems.length > 0">
-          <a href="#" @click="cartItems.length = 0">清空購物車</a>
+          <a class="cart-button" href="#" @click="cartItems.length = 0"
+            >清空購物車</a
+          >
         </template>
       </div>
       <footer>

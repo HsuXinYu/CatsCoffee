@@ -8,7 +8,7 @@ app.component("shop-display", {
             <div class="product-info">
               <div>{{product.name}}</div>
               <div>NT$ {{product.price}}</div>
-              <a href="#" class="addToCart"  @click="addToCart(index)"
+              <a href="#" class="cart-button" @click="addToCart(index)"
                 >加入購物車</a
               >
             </div>

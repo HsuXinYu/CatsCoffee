@@ -56,7 +56,7 @@ app.component("menu-display", {
     /*html*/
     `<div class="main-area">
         <div id="heading">
-          <img src="https://picsum.photos/1200/500" alt="heading" />
+          <img src="images/CoffeeShop.jpg" alt="shop" />
         </div>
         <div id="about">
           <p>
@@ -70,7 +70,6 @@ app.component("menu-display", {
           </p>
         </div>
         <div id="news">
-          <img src="" alt="" />
           <p>本店推出最新咖啡豆!歡迎前往購物搶購唷!!</p>
         </div>
         <div id="menu">
@@ -84,9 +83,9 @@ app.component("menu-display", {
             <p class="price">$ {{item.price}}</p>
             <div class="input_group">
               <input
-                class="minus"
+                class="minus menu-button"
                 type="button"
-                value="-"
+                value="－"
                 @click="deleteOrder"
               />
               <input
@@ -97,22 +96,22 @@ app.component("menu-display", {
                 min="0"
                 max="10"
               />
-              <input class="plus" type="button" value="+" @click="order" />
+              <input class="plus menu-button" type="button" value="＋" @click="order" />
             </div>
           </div>
           <div class="menu_title">
             <h2>dessert</h2>
-            <img src="images/cake_48x48.png" alt="coffee icon" />
+            <img src="images/cake_48x48.png" alt="dessert icon" />
           </div>
           <div class="item" v-for="(item,index) in dessert_items">
-            <span class="coffee"><p>{{item.name}}</p></span>
+            <span class="dessert"><p>{{item.name}}</p></span>
             <span class="hiddenimg"> <img :src="item.img" /></span>
             <p class="price">$ {{item.price}}</p>
             <div class="input_group">
               <input
-                class="minus"
+                class="minus menu-button"
                 type="button"
-                value="-"
+                value="－"
                 @click="deleteOrder"
               />
               <input
@@ -124,21 +123,17 @@ app.component("menu-display", {
                 min="0"
                 max="10"
               />
-              <input class="plus" type="button" value="+" @click="order" />
+              <input class="plus menu-button" type="button" value="＋" @click="order" />
             </div>
           </div>
           <div class="ordered">
             <p>Total Price:</p>
             <p id="total">{{total}}</p>
-            <button @click="total">Order</button>
+            <button class="menu-button" @click="total">Order</button>
           </div>
         </div>
         <div class="products-img">
-          <img src="https://picsum.photos/200/200?random=1" alt="product-1" />
-          <img src="https://picsum.photos/200/200?random=2" alt="product-2" />
-          <img src="https://picsum.photos/200/200?random=3" alt="product-3" />
-          <img src="https://picsum.photos/200/200?random=4" alt="product-4" />
-          <img src="https://picsum.photos/200/200?random=5" alt="product-5" />
+          <img  v-for="(product,index) in products" :src="product.img" alt="product" />
         </div>
         <div class="map-button">
           <!-- <a target="map" href="https://pse.is/4xlhe6">台北分店</a>
@@ -161,6 +156,7 @@ app.component("menu-display", {
       dessert_items: desserts,
       coffee_item_vals: coffees.map((v) => 0),
       dessert_item_vals: desserts.map((v) => 0),
+      products: coffeeBeans,
     };
   },
   methods: {
