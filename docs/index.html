@@ -152,14 +152,14 @@
         <div class="cart-item" v-for="(item, index) in cartItems">
           <img :src="item.img" />
           <div>
-            {{item.name}}
+            [[item.name]]
             <br />
-            NT$ {{item.price}}
+            NT$ [[item.price]]
           </div>
           <a class="cart-button" href="#" @click="removeCart(index)">移除</a>
         </div>
         <div v-if="cartItems.length === 0">你還沒購買任何商品唷!</div>
-        <div v-else>小計 NT$ {{total}}</div>
+        <div v-else>小計 NT$ [[total]]</div>
         <template v-if="cartItems.length > 0">
           <a class="cart-button" href="#" @click="cartItems.length = 0"
             >清空購物車</a

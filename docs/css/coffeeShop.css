@@ -9,7 +9,7 @@
   list-style: none;
 }
 /* 解決固定nav定位錯誤問題 */
-:target:before {
+:target::before {
   content: "";
   display: block;
   height: 125px;
@@ -295,10 +295,13 @@ footer p {
     color: var(--font-color);
     border: none;
     border-radius: 2px;
-    font-size: 1.2rem;
-    margin: 2%;
+    font-size: 1rem;
+    margin: 1%;
     padding: 1%;
     cursor: pointer;
+  }
+  .quantity_field {
+    width: 20px;
   }
   .about {
     margin: 10px;

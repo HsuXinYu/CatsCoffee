@@ -62,7 +62,7 @@ const login_success = function (response) {
     let uname = $("#uname").val();
     $("#login .close-modal").click();
     $("#login_member").text("Welcome!" + uname);
-    $("#login_member").css("font-size", "1rem");
+    $("#login_member").css("font-size", "1.2rem");
     $("#login_form").css("display", "none");
     $("#logout").css("display", "inline-block");
     $("#delete_acc").css("display", "inline-block");
@@ -243,6 +243,7 @@ const coffeeBeans = [
 ];
 
 const app = Vue.createApp({
+  delimiters: ["[[", "]]"],
   data() {
     return {
       showShop: false,
