@@ -299,7 +299,7 @@ footer p {
     color: var(--font-color);
     border: none;
     border-radius: 1px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 1%;
     padding: 1%;
     cursor: pointer;
