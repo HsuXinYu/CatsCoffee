@@ -287,6 +287,9 @@ footer p {
     height: 100px;
     margin: 0px auto;
   }
+  #menu {
+    max-width: 80%;
+  }
   .input_group,
   .ordered {
     display: inline;
