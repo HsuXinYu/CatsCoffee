@@ -59,18 +59,19 @@ app.component("menu-display", {
           <img src="images/CoffeeShop.jpg" alt="shop" />
         </div>
         <div id="about">
-          <p>
-            凱絲貓的經營理念是希望營造出令人放鬆的咖啡館，<br />
-            而店裡的貓咪也會在此等候著您的到來。 <br />
-          </p>
           <br />
           <p>
             Cat's coffees is to create a relaxing environment,<br />
             and the cats in the shop will also be waiting for your arrival.
           </p>
+          <p>
+          凱絲貓的經營理念是希望營造出令人放鬆的咖啡館，<br />
+          而店裡的貓咪也會在此等候著您的到來。 <br />
+        </p>
         </div>
         <div id="news">
-          <p>本店推出最新咖啡豆!歡迎前往購物搶購唷!!</p>
+          <p>Our store launched the latest coffee beans! Welcome to go shopping!!</p> 
+          <p>本店推出最新咖啡豆!歡迎前往購物搶購唷!!</p>   
         </div>
         <div id="menu">
           <div class="menu_title">

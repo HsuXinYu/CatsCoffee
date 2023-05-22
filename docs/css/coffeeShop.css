@@ -295,7 +295,7 @@ footer p {
     background-color: rgba(164, 117, 69, 50%);
     color: var(--font-color);
     border: none;
-    border-radius: 2px;
+    border-radius: 1px;
     font-size: 1rem;
     margin: 1%;
     padding: 1%;
