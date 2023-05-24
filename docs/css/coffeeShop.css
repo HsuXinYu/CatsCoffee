@@ -194,10 +194,10 @@ ul li a:hover {
   background-color: rgba(164, 117, 69, 80%);
   color: var(--font-color);
   width: 20%;
-  height: 70%;
+  height: auto;
   position: fixed;
   right: 0;
-  top: 130px;
+  top: 200px;
   padding: 30px;
 }
 .cart-item {
