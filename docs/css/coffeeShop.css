@@ -1,3 +1,4 @@
+/* 電腦 */
 :root {
   --background-color: rgb(164, 117, 69);
   --font-color: rgb(255, 255, 255);
@@ -12,7 +13,7 @@
 :target::before {
   content: "";
   display: block;
-  height: 125px;
+  height: 180px;
 }
 header {
   background-color: var(--background-color);
@@ -118,7 +119,7 @@ ul li a:hover {
 .hiddenimg img {
   width: 200px;
   height: 200px;
-  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2), 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 .coffee:hover ~ .hiddenimg,
 .dessert:hover ~ .hiddenimg {
@@ -179,8 +180,12 @@ ul li a:hover {
 }
 .content {
   border: 1px solid #bbb;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
+}
+.content:hover {
+  box-shadow: none;
 }
 .content img {
   width: 100%;
@@ -247,7 +252,7 @@ footer p {
   right: 5%;
   top: 80%;
 }
-
+/* 平板 */
 @media (max-width: 996px) {
   ul li {
     font-size: 1rem;
@@ -269,7 +274,7 @@ footer p {
     position: initial;
   }
 }
-
+/* 手機 */
 @media (max-width: 768px) {
   header li,
   #heading,
