@@ -23,7 +23,7 @@ app.component("shop-display", {
   },
   methods: {
     addToCart(index) {
-      console.log(index);
+      // console.log(index);
       this.$emit("add-to-cart", index);
     },
   },

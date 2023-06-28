@@ -255,7 +255,7 @@ const app = Vue.createApp({
     updateCart(index) {
       console.log(index);
       this.cartItems.push(coffeeBeans[index]);
-      console.log(this.cartItems);
+      console.log(this.cartItems.length);
     },
     removeCart(index) {
       this.cartItems.splice(index, 1);

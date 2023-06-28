@@ -25,7 +25,12 @@
             <li><a class="link" href="#menu" v-if="!showShop">Menu</a></li>
             <img class="logo" src="images/logo_150x150.png" alt="logo" />
             <li class="login">
-              <a id="login_member" href="#" onclick="show()" onkeypress="show()"
+              <a
+                id="login_member"
+                class="link"
+                href="#"
+                onclick="show()"
+                onkeypress="show()"
                 >Login</a
               >
               <!-- login -->
@@ -131,8 +136,12 @@
             </li>
             <li>
               <a class="link" href="#" @click="showCart=!showCart"
-                ><i class="fa-solid fa-cart-arrow-down"></i
-              ></a>
+                ><i class="fa-solid fa-cart-arrow-down"
+                  ><span class="cart_quantity" v-show="cartItems.length > 0 "
+                    >[[cartItems.length]]</span
+                  ></i
+                >
+              </a>
             </li>
           </ul>
         </nav>
