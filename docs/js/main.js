@@ -22,20 +22,28 @@ $(document).ready(function () {
 
 //login
 const BASE_URL = "http://127.0.0.1:5000";
+var current_user = "";
 
-function show() {
+function show_login() {
+  $("#sign_up_form").css("display", "none");
+  // if already login then dont show login_form
+  if (current_user === "") {
+    $("#login_form").css("display", "inline-block");
+  } else {
+    $("#login_form").css("display", "none");
+  }
   $("#login").modal();
 }
 
 function login(e) {
   e.preventDefault();
-  let umane = $("#uname").val();
+  let uname = $("#uname").val();
   let psw = $("#psw").val();
-  let info_creds = "username=" + umane + "&password=" + psw;
+  let info_creds = { sign_up_uname: uname, sign_up_psw: psw };
 
   // console.log(info_creds);
 
-  if ((umane === "" && psw === "") || umane === "" || psw === "") {
+  if ((uname === "" && psw === "") || uname === "" || psw === "") {
     alert("You must to type something!");
     return;
   }
@@ -43,7 +51,8 @@ function login(e) {
   $.ajax({
     type: "POST",
     url: BASE_URL + "/login/coffee",
-    data: info_creds,
+    data: JSON.stringify(info_creds),
+    contentType: "application/json",
     // success: function (response){login_success(response)},
     success: login_success,
     // error: login_success,
@@ -52,20 +61,18 @@ function login(e) {
 }
 
 const login_success = function (response) {
-  // response = "login_ok!";
-
   console.log("inside success");
   console.log(response);
 
   if (response == "login_ok!") {
     console.log("ok");
     let uname = $("#uname").val();
+    current_user = uname;
     $("#login .close-modal").click();
     $("#login_member").text("Welcome!" + uname);
     $("#login_member").css("font-size", "1.2rem");
-    $("#login_form").css("display", "none");
     $("#logout").css("display", "inline-block");
-    $("#delete_acc").css("display", "inline-block");
+    $("#delete_mumber").css("display", "inline-block");
   }
 
   if (response == "login_wrong!") {
@@ -88,8 +95,9 @@ const login_error = function (request, status, error) {
 };
 
 function show_sign_up() {
+  $("#sign_up_form")[0].reset();
   $("#login_form").css("display", "none");
-  $("#sing_up_form").css("display", "inline-block");
+  $("#sign_up_form").css("display", "inline-block");
 }
 
 function sign_up_to(e) {
@@ -127,6 +135,7 @@ function sign_up_to(e) {
   let phone_re = new RegExp(/\d{10}/);
   if (!phone_re.test(phone)) {
     alert("Your phone number is not currect!");
+    return;
   }
 
   console.log(BASE_URL + "/sign_up/coffee");
@@ -153,6 +162,7 @@ const sign_up_success = function (response) {
   if (response == "sign_up_wrong!") {
     console.log("wrong");
     alert("Your account already exist!");
+    show_login();
   }
 };
 
@@ -167,35 +177,35 @@ const sign_up_error = function (request, status, error) {
 const logout = function () {
   window.localStorage.clear();
   window.location.reload(true);
-  window.location.replace(BASE_URL);
+  // window.location.replace(BASE_URL);
 };
 
-const delete_acc = function (e) {
+const delete_mumber = function (e) {
   e.preventDefault();
   let uname = $("#uname").val();
+  let info_creds = { sign_up_uname: uname };
 
-  console.log(uname);
-
-  console.log(BASE_URL + "/delete_acc/coffee");
+  console.log(BASE_URL + "/delete_mumber/coffee");
   $.ajax({
-    type: "POST",
-    url: BASE_URL + "/sign_up/coffee",
-    data: JSON.stringify(uname),
+    type: "DELETE",
+    url: BASE_URL + "/delete_mumber/coffee",
+    data: JSON.stringify(info_creds),
     contentType: "application/json",
-    success: delete_acc_success,
-    error: delete_acc_error,
+    success: delete_mumber_success,
+    error: delete_mumber_error,
   });
 };
 
-const delete_acc_success = function (request, status, error) {
-  if (response == "delete_acc_ok!") {
+const delete_mumber_success = function (response) {
+  if (response == "delete_mumber_ok!") {
     console.log("ok");
     alert("Your account has been deleted!");
     $("#login .close-modal").click();
+    logout();
   }
 };
 
-const delete_acc_error = function (request, status, error) {
+const delete_mumber_error = function (request, status, error) {
   console.log("inside error");
   console.log(request);
   console.log(status);

@@ -70,22 +70,22 @@ ul li a:hover {
   cursor: pointer;
 }
 #login,
-#sing_up_form,
-#delete_acc,
-#logout {
+#sign_up_form,
+#logout,
+#delete_mumber {
   margin: 10px;
   display: none;
 }
-#sing_up_form input,
-#sing_up_form label {
+#sign_up_form input,
+#sign_up_form label {
   display: inline-block;
   margin: 5px;
 }
-#sing_up_form label {
+#sign_up_form label {
   text-align: left;
   width: 25%;
 }
-#sing_up_form input {
+#sign_up_form input {
   text-align: left;
   width: 50%;
 }
