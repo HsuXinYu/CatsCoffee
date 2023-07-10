@@ -132,9 +132,17 @@ function sign_up_to(e) {
     return;
   }
 
-  let phone_re = new RegExp(/\d{10}/);
-  if (!phone_re.test(phone)) {
+  let phone_reg = new RegExp(/^[0-9]{10}$/g);
+  if (!phone_reg.test(phone)) {
     alert("Your phone number is not currect!");
+    return;
+  }
+
+  let email_reg = new RegExp(
+    /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
+  );
+  if (!email_reg.test(email)) {
+    alert("Your email is not currect!");
     return;
   }
 
