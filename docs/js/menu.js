@@ -155,8 +155,8 @@ app.component("menu-display", {
     return {
       coffee_items: coffees,
       dessert_items: desserts,
-      coffee_item_vals: coffees.map((v) => 0),
-      dessert_item_vals: desserts.map((v) => 0),
+      coffee_item_vals: coffees.map((item) => 0),
+      dessert_item_vals: desserts.map((item) => 0),
       products: coffeeBeans,
     };
   },

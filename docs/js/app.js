@@ -41,10 +41,10 @@ function login(e) {
   let psw = $("#psw").val();
   let info_creds = { sign_up_uname: uname, sign_up_psw: psw };
 
-  // console.log(info_creds);
+  console.log(info_creds);
 
   if ((uname === "" && psw === "") || uname === "" || psw === "") {
-    alert("You must to type something!");
+    $("#message").text("You must to type something!");
     return;
   }
 
@@ -73,16 +73,17 @@ const login_success = function (response) {
     $("#login_member").css("font-size", "1.2rem");
     $("#logout").css("display", "inline-block");
     $("#delete_mumber").css("display", "inline-block");
+    $("#message").css("display", "none");
   }
 
   if (response == "login_wrong!") {
     console.log("wrong");
-    alert("Your account or password is wrong!");
+    $("#message").text("Your account or password is wrong!");
   }
 
   if (response == "user_not_found!") {
     console.log("not found!");
-    alert("Your account is not exist!");
+    $("#message").text("Your account is not exist!");
   }
 };
 
@@ -128,13 +129,13 @@ function sign_up_to(e) {
     sign_up_uname === "" ||
     sign_up_psw === ""
   ) {
-    alert("You should fill out the form!");
+    $("#message").text("You should fill out the form!");
     return;
   }
 
   let phone_reg = new RegExp(/^[0-9]{10}$/g);
   if (!phone_reg.test(phone)) {
-    alert("Your phone number is not currect!");
+    $("#message").text("Your phone number is not currect!");
     return;
   }
 
@@ -142,7 +143,7 @@ function sign_up_to(e) {
     /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
   );
   if (!email_reg.test(email)) {
-    alert("Your email is not currect!");
+    $("#message").text("Your email is not currect!");
     return;
   }
 
@@ -164,12 +165,14 @@ const sign_up_success = function (response) {
   if (response == "sign_up_ok!") {
     console.log("ok");
     alert("Your sign up is success!");
+    $("#message").css("display", "none");
     $("#login .close-modal").click();
+    show_login();
   }
 
   if (response == "sign_up_wrong!") {
     console.log("wrong");
-    alert("Your account already exist!");
+    $("#message").text("Your account already exist!");
     show_login();
   }
 };

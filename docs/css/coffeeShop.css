@@ -77,6 +77,7 @@ ul li a:hover {
   display: none;
 }
 #sign_up_form input,
+#sign_up_form select,
 #sign_up_form label {
   display: inline-block;
   margin: 5px;
@@ -85,9 +86,16 @@ ul li a:hover {
   text-align: left;
   width: 25%;
 }
-#sign_up_form input {
+#sign_up_form input,
+#sign_up_form select {
   text-align: left;
   width: 50%;
+}
+#message {
+  background-color: #fff;
+  color: red;
+  margin: 10px;
+  border-radius: 10px;
 }
 .main-area {
   text-align: center;
