@@ -21,7 +21,7 @@ $(document).ready(function () {
 });
 
 //login
-const BASE_URL = "http://127.0.0.1:5000";
+const BASE_URL = "http://127.0.0.1:8080";
 var current_user = "";
 
 function show_login() {
@@ -83,7 +83,7 @@ const login_success = function (response) {
 
   if (response == "user_not_found!") {
     console.log("not found!");
-    $("#message").text("Your account is not exist!");
+    $("#message").text("Your account doesn't exist!");
   }
 };
 

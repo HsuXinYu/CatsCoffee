@@ -84,6 +84,6 @@ app.delete("/delete_mumber/coffee", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("正在伺服器5000...");
+app.listen(8080, () => {
+  console.log("正在伺服器8080...");
 });
