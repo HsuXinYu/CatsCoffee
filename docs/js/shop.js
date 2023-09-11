@@ -14,8 +14,7 @@ app.component("shop-display", {
             </div>
           </div>
         </div>
-      </div>
-  `,
+    </div>`,
   data() {
     return {
       products: coffeeBeans,

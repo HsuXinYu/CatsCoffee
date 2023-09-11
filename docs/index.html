@@ -174,11 +174,11 @@
         </div>
         <div v-if="cartItems.length === 0">你還沒購買任何商品唷!</div>
         <div v-else>小計 NT$ [[total]]</div>
-        <template v-if="cartItems.length > 0">
+        <div v-if="cartItems.length > 0">
           <a class="cart-button" href="#" @click="cartItems.length = 0"
             >清空購物車</a
           >
-        </template>
+        </div>
       </div>
       <footer>
         <div class="f-icon">
@@ -186,10 +186,11 @@
           <i class="fa-brands fa-youtube"></i>
           <i class="fa-brands fa-square-instagram"></i>
         </div>
-        <p>© 2023 Cat's Coffee All Rights Reserved.</p>
+        <p>© 2023 HSU XIN YU All Rights Reserved.</p>
       </footer>
       <a class="top" href="#">&uarr;</a>
     </div>
+
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -202,7 +203,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <!-- Import App -->
-    <script src="js/app.js"></script>
+    <script src="app.js"></script>
 
     <!-- Import Components -->
     <script src="js/menu.js"></script>

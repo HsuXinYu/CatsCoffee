@@ -149,8 +149,7 @@ app.component("menu-display", {
           width="500px"
           height="500px"
         ></iframe>
-      </div>`,
-
+    </div>`,
   data() {
     return {
       coffee_items: coffees,
