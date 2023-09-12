@@ -26,7 +26,7 @@
             <img class="logo" src="images/logo_150x150.png" alt="logo" />
             <li class="login">
               <a
-                id="login_member"
+                id="login-member"
                 class="link"
                 href="#"
                 onclick="show_login()"
@@ -36,7 +36,7 @@
               <!-- login -->
               <div id="login">
                 <!-- login content-->
-                <form id="login_form" method="post" onsubmit="return false;">
+                <form id="login-form" method="post" onsubmit="return false;">
                   <div class="img-container">
                     <img src="images/logo_150x150.png" alt="logo" />
                   </div>
@@ -62,7 +62,7 @@
                   </button>
                 </form>
                 <!-- sign up content-->
-                <form id="sign_up_form" method="post" onsubmit="return false;">
+                <form id="sign-up-form" method="post" onsubmit="return false;">
                   <h1>Sign Up</h1>
                   <p>Please fill in this form to create an account.</p>
                   <hr />
@@ -110,27 +110,27 @@
                     name="email"
                   />
                   <br />
-                  <label for="sign_up_uname"><b>Username</b></label>
+                  <label for="sign-up-uname"><b>Username</b></label>
                   <input
-                    id="sign_up_uname"
+                    id="sign-up-uname"
                     type="text"
                     placeholder="Enter Username"
-                    name="sign_up_uname"
+                    name="sign-up-uname"
                   />
                   <br />
-                  <label for="sign_up_psw"><b>Password</b></label>
+                  <label for="sign-up-psw"><b>Password</b></label>
                   <input
-                    id="sign_up_psw"
+                    id="sign-up-psw"
                     type="password"
                     placeholder="Enter Password"
-                    name="sign_up_psw"
+                    name="sign-up-psw"
                   />
                   <br />
                   <button id="cancel" type="reset" onclick="logout()">
                     Cancel
                   </button>
                   <button
-                    id="sign_up"
+                    id="sign-up"
                     type="submit"
                     onclick="sign_up_to(event)"
                   >
@@ -138,7 +138,7 @@
                   </button>
                 </form>
                 <button id="logout" onclick="logout()">Logout</button>
-                <button id="delete_mumber" onclick="delete_mumber(event)">
+                <button id="delete-mumber" onclick="delete_mumber(event)">
                   Delete Member
                 </button>
                 <div id="message"></div>
@@ -150,7 +150,7 @@
             <li>
               <a class="link" href="#" @click="showCart=!showCart"
                 ><i class="fa-solid fa-cart-arrow-down"
-                  ><span class="cart_quantity" v-show="cartItems.length > 0 "
+                  ><span class="cart-quantity" v-show="cartItems.length > 0 "
                     >[[cartItems.length]]</span
                   ></i
                 >
@@ -161,7 +161,7 @@
       </header>
       <menu-display v-if="!showShop"></menu-display>
       <shop-display v-else @add-to-cart="updateCart"></shop-display>
-      <div class="cart_list" v-if="showCart">
+      <div class="cart-list" v-if="showCart">
         <h3>購物車</h3>
         <div class="cart-item" v-for="(item, index) in cartItems">
           <img :src="item.img" />

@@ -74,7 +74,7 @@ app.component("menu-display", {
           <p>本店推出最新咖啡豆!歡迎前往購物搶購唷!!</p>   
         </div>
         <div id="menu">
-          <div class="menu_title">
+          <div class="menu-title">
             <h2>Coffee</h2>
             <img src="images/coffee_48x48.png" alt="coffee icon" />
           </div>
@@ -82,7 +82,7 @@ app.component("menu-display", {
             <span class="coffee"><p>{{item.name}}</p></span>
             <span class="hiddenimg"> <img :src="item.img" /></span>
             <p class="price">$ {{item.price}}</p>
-            <div class="input_group">
+            <div class="input-group">
               <input
                 class="minus menu-button"
                 type="button"
@@ -90,7 +90,7 @@ app.component("menu-display", {
                 @click="deleteOrder"
               />
               <input
-                class="quantity_field"
+                class="quantity-field"
                 type="number"
                 v-model="coffee_item_vals[index]"
                 step="1"
@@ -100,7 +100,7 @@ app.component("menu-display", {
               <input class="plus menu-button" type="button" value="＋" @click="order" />
             </div>
           </div>
-          <div class="menu_title">
+          <div class="menu-title">
             <h2>dessert</h2>
             <img src="images/cake_48x48.png" alt="dessert icon" />
           </div>
@@ -108,7 +108,7 @@ app.component("menu-display", {
             <span class="dessert"><p>{{item.name}}</p></span>
             <span class="hiddenimg"> <img :src="item.img" /></span>
             <p class="price">$ {{item.price}}</p>
-            <div class="input_group">
+            <div class="input-group">
               <input
                 class="minus menu-button"
                 type="button"
@@ -116,7 +116,7 @@ app.component("menu-display", {
                 @click="deleteOrder"
               />
               <input
-                class="quantity_field"
+                class="quantity-field"
                 type="number"
                 v-model="dessert_item_vals[index]"
                 name="quantity"

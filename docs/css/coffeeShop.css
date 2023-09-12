@@ -46,7 +46,7 @@ ul li a {
 ul li a:hover {
   background-color: rgb(190, 185, 170);
 }
-.cart_quantity {
+.cart-quantity {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -70,24 +70,24 @@ ul li a:hover {
   cursor: pointer;
 }
 #login,
-#sign_up_form,
+#sign-up-form,
 #logout,
-#delete_mumber {
+#delete-mumber {
   margin: 10px;
   display: none;
 }
-#sign_up_form input,
-#sign_up_form select,
-#sign_up_form label {
+#sign-up-form input,
+#sign-up-form select,
+#sign-up-form label {
   display: inline-block;
   margin: 5px;
 }
-#sign_up_form label {
+#sign-up-form label {
   text-align: left;
   width: 25%;
 }
-#sign_up_form input,
-#sign_up_form select {
+#sign-up-form input,
+#sign-up-form select {
   text-align: left;
   width: 50%;
 }
@@ -118,7 +118,7 @@ ul li a:hover {
   display: flex;
   flex-direction: column;
 }
-.menu_title {
+.menu-title {
   background-color: var(--background-color);
   border-radius: 5px;
   display: flex;
@@ -155,7 +155,7 @@ ul li a:hover {
   width: 20%;
   margin: 10px;
 }
-.input_group,
+.input-group,
 .ordered {
   display: none;
 }
@@ -210,7 +210,7 @@ ul li a:hover {
   text-decoration: none;
   color: blueviolet;
 }
-.cart_list {
+.cart-list {
   background-color: rgba(164, 117, 69, 80%);
   color: var(--font-color);
   width: 20%;
@@ -310,7 +310,7 @@ footer p {
   #menu {
     max-width: 80%;
   }
-  .input_group,
+  .input-group,
   .ordered {
     display: inline;
   }
@@ -324,7 +324,7 @@ footer p {
     padding: 1%;
     cursor: pointer;
   }
-  .quantity_field {
+  .quantity-field {
     width: 25px;
   }
   .about {
