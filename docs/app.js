@@ -1,14 +1,5 @@
 // scroll to element
 $(document).ready(function () {
-  $("a.top").on("click", function () {
-    $("html,body").animate(
-      {
-        scrollTop: 0,
-      },
-      500
-    );
-  });
-
   $("a.link").on("click", function () {
     var hrefLink = $(this).attr("href");
     $("html,body").animate(
@@ -18,6 +9,15 @@ $(document).ready(function () {
       500
     );
   });
+});
+
+$("a.top").on("click", function () {
+  $("html,body").animate(
+    {
+      scrollTop: 0,
+    },
+    500
+  );
 });
 
 //login
@@ -258,6 +258,13 @@ const coffeeBeans = [
     id: 5,
     name: "咖啡豆5號",
     img: "images/CoffeeBeans1.png",
+    qty: 20,
+    price: 299,
+  },
+  {
+    id: 6,
+    name: "咖啡豆6號",
+    img: "images/CoffeeBeans2.png",
     qty: 20,
     price: 299,
   },

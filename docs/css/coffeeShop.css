@@ -1,4 +1,3 @@
-/* 電腦 */
 :root {
   --background-color: rgb(164, 117, 69);
   --font-color: rgb(255, 255, 255);
@@ -15,43 +14,64 @@
   display: block;
   height: 180px;
 }
-header {
+.header {
   background-color: var(--background-color);
   width: 100%;
   height: 180px;
   border-radius: 0 0 50% 50%;
   position: sticky;
   top: 0px;
-  text-align: center;
+}
+.header .container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
 }
 .logo {
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  margin: 0 7% 0 7%;
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 10%;
+}
+.logo img {
+  width: 100%;
+}
+ul {
+  width: 100%;
+  height: 180px;
+  padding: 5% 10%;
 }
 ul li {
   display: inline-block;
-  width: 5%;
-  margin: 2%;
+  width: 10%;
+  box-sizing: border-box;
+}
+ul li:nth-child(3) {
+  margin-right: 10%;
+}
+ul li:nth-child(4) {
+  margin-left: 30%;
 }
 ul li a {
   color: var(--font-color);
-  padding: 10px;
-  border-radius: 5px;
   text-decoration: none;
   font-size: 1.5rem;
-  cursor: pointer;
+  position: relative;
 }
-ul li a:hover {
-  background-color: rgb(190, 185, 170);
+ul li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: -2%;
+  height: 0;
+  border-bottom: 1px solid var(--font-color);
+  transition: 0.3s;
 }
-.cart-quantity {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  font-size: 1rem;
-  float: right;
+ul li a:hover::after {
+  left: 0;
+  right: 0;
 }
 #login {
   background-color: var(--background-color);
@@ -163,7 +183,7 @@ ul li a:hover {
   margin: auto;
 }
 .products-img img {
-  width: 15%;
+  width: 10%;
   margin: 10px;
 }
 .branch {
@@ -183,10 +203,11 @@ ul li a:hover {
   margin: 2%;
 }
 .shopping-area {
-  width: 80%;
+  width: 60%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .shopping-box {
   flex: 0 0 calc(100% / 4);
@@ -194,13 +215,11 @@ ul li a:hover {
   text-align: center;
 }
 .content {
-  border: 1px solid #bbb;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(187, 187, 187);
   border-radius: 5px;
-  overflow: hidden;
 }
 .content:hover {
-  box-shadow: none;
+  box-shadow: 2px 2px 1px 1px rgba(187, 187, 187, 0.2);
 }
 .content img {
   width: 100%;
@@ -208,10 +227,15 @@ ul li a:hover {
 }
 .cart-button {
   text-decoration: none;
-  color: blueviolet;
+  color: var(--background-color);
+}
+.cart-quantity {
+  position: absolute;
+  margin: 5px;
+  font-size: 1rem;
 }
 .cart-list {
-  background-color: rgba(164, 117, 69, 80%);
+  background-color: rgba(165, 115, 70, 0.5);
   color: var(--font-color);
   width: 20%;
   height: auto;
@@ -228,7 +252,7 @@ ul li a:hover {
 }
 .cart-item img {
   display: block;
-  width: 70px;
+  width: 40%;
   margin-right: 5px;
 }
 footer {
@@ -269,11 +293,35 @@ footer p {
 }
 /* 平板 */
 @media (max-width: 996px) {
+  .header {
+    height: 150px;
+  }
+  .logo {
+    width: 12%;
+  }
+  ul {
+    height: 150px;
+  }
   ul li {
-    font-size: 1rem;
-    display: inline-block;
-    width: 8%;
-    height: 50px;
+    width: 5%;
+    padding: 2% 6%;
+  }
+  ul li:nth-child(4) {
+    margin-left: 12%;
+  }
+  ul li a {
+    font-size: 1.2rem;
+  }
+  .cart-button {
+    width: 80%;
+  }
+  .cart-list {
+    width: 15%;
+    top: 150px;
+    font-size: 0.8em;
+  }
+  .cart-item img {
+    width: 30%;
   }
   footer {
     height: 80px;
@@ -299,13 +347,12 @@ footer p {
   #map {
     display: none;
   }
-  header {
+  .header {
     height: 100px;
   }
   .logo {
-    width: 100px;
-    height: 100px;
-    margin: 0px auto;
+    width: 12%;
+    left: 45%;
   }
   #menu {
     max-width: 80%;
@@ -315,10 +362,10 @@ footer p {
     display: inline;
   }
   .menu-button {
-    background-color: rgba(164, 117, 69, 50%);
+    background-color: rgba(165, 115, 70, 0.5);
     color: var(--font-color);
     border: none;
-    border-radius: 1px;
+    border-radius: 50%;
     font-size: 0.8rem;
     margin: 1%;
     padding: 1%;
