@@ -68,8 +68,7 @@ app.component("login-display", {
   },
   methods: {
     updateUser(e) {
-      let uname = $("#uname").val();
-      this.$emit("update-user", uname);
+      this.$emit("update-user", e.target.value);
     },
     login(e) {
       let uname = $("#uname").val();
