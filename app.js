@@ -25,15 +25,17 @@ app.use(methodOverride("_method"));
 app.post("/login/coffee", async (req, res) => {
   try {
     console.log(req.body);
-    let { sign_up_uname, sign_up_psw } = req.body;
-    let found_uname = await Mumber.findOne({ sign_up_uname }).exec();
+    let { login_uname, login_psw } = req.body;
+    let found_uname = await Mumber.findOne({
+      sign_up_uname: login_uname,
+    }).exec();
     console.log(found_uname);
 
     if (!found_uname) {
       return res.send("user_not_found!");
     }
 
-    if (sign_up_psw == found_uname.sign_up_psw) {
+    if (login_psw == found_uname.sign_up_psw) {
       console.log("login_ok!");
       return res.send("login_ok!");
     } else {
