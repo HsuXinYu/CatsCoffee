@@ -78,6 +78,8 @@ const app = Vue.createApp({
   },
   methods: {
     show_login() {
+      $("#login-form")[0].reset();
+      $("#message").text("");
       $("#sign-up-form").css("display", "none");
       //如果已經登入則不顯示
       if (this.current_user === "") {
@@ -86,6 +88,10 @@ const app = Vue.createApp({
         $("#login-form").css("display", "none");
       }
       $("#login").modal();
+      // $("#login > a").on("click", () => {
+      //   alert("Click event is fired.");
+      //   $("#message").css("display", "none");
+      // });
     },
     updateUser(user) {
       this.current_user = user;

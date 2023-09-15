@@ -7,7 +7,7 @@ app.component("login-display", {
                 <img src="images/logo_150x150.png" alt="logo" />
             </div>
             <label for="uname"><b>Username</b></label>
-            <input id="uname" type="text" name="uname" placeholder="Enter Username" @input="updateUser"/>
+            <input id="uname" type="text" name="uname" placeholder="Enter Username" @input="updateMyUser"/>
             <br />
             <label for="psw"><b>Password</b></label>
             <input id="psw" type="password" name="psw" placeholder="Enter Password"/>
@@ -64,11 +64,16 @@ app.component("login-display", {
   data() {
     return {
       BASE_URL: "http://127.0.0.1:8080",
+      myUser: "",
     };
   },
   methods: {
-    updateUser(e) {
-      this.$emit("update-user", e.target.value);
+    updateMyUser(e) {
+      this.myUser = e.target.value;
+    },
+
+    updateUser(user) {
+      this.$emit("update-user", user);
     },
     login(e) {
       let uname = $("#uname").val();
@@ -106,6 +111,7 @@ app.component("login-display", {
         $("#logout").css("display", "inline-block");
         $("#delete-mumber").css("display", "inline-block");
         $("#message").css("display", "none");
+        this.updateUser(this.myUser);
       }
 
       if (response == "login_wrong!") {
@@ -115,6 +121,7 @@ app.component("login-display", {
 
       if (response == "user_not_found!") {
         console.log("not found!");
+
         $("#message").text("Your account doesn't exist!");
       }
     },
