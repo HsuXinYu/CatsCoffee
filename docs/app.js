@@ -88,10 +88,6 @@ const app = Vue.createApp({
         $("#login-form").css("display", "none");
       }
       $("#login").modal();
-      // $("#login > a").on("click", () => {
-      //   alert("Click event is fired.");
-      //   $("#message").css("display", "none");
-      // });
     },
     updateUser(user) {
       this.current_user = user;

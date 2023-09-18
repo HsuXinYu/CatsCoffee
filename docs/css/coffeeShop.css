@@ -79,37 +79,56 @@ ul li a:hover::after {
   font-size: var(--fontsize);
   text-align: center;
 }
+#login-form label,
+#login-form input,
+#sign-up-form label,
+#sign-up-form input,
+#sign-up-form select {
+  display: inline-block;
+  margin: 5px;
+}
 #login button {
   background-color: var(--background-color);
   color: var(--font-color);
   font-size: var(--fontsize);
   border: 2px solid var(--font-color);
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   margin: 10px 5px;
+  border-radius: 5px;
   cursor: pointer;
 }
-#login,
+#login-form label,
+#sign-up-form label {
+  text-align: left;
+  width: 30%;
+}
+#login-form input,
+#sign-up-form input,
+#sign-up-form select {
+  padding: 5px;
+  text-align: left;
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+}
+#login-form input:focus,
+#sign-up-form input:focus,
+#sign-up-form select:focus {
+  outline: none;
+}
+#sign-up-form hr {
+  margin: 10px 0;
+}
+#sign-up-form select {
+  width: 53%;
+}
+#login-form,
 #sign-up-form,
 #logout,
 #delete-mumber {
   margin: 10px;
   display: none;
-}
-#sign-up-form input,
-#sign-up-form select,
-#sign-up-form label {
-  display: inline-block;
-  margin: 5px;
-}
-#sign-up-form label {
-  text-align: left;
-  width: 25%;
-}
-#sign-up-form input,
-#sign-up-form select {
-  text-align: left;
-  width: 50%;
 }
 #message {
   background-color: #fff;

@@ -4,7 +4,7 @@ app.component("login-display", {
     `<div id="login">
         <form id="login-form" method="post" onsubmit="return false;">
             <div class="img-container">
-                <img src="images/logo_150x150.png" alt="logo" />
+              <img src="images/logo_150x150.png" alt="logo" />
             </div>
             <label for="uname"><b>Username</b></label>
             <input id="uname" type="text" name="uname" placeholder="Enter Username" @input="updateMyUser"/>
@@ -71,7 +71,6 @@ app.component("login-display", {
     updateMyUser(e) {
       this.myUser = e.target.value;
     },
-
     updateUser(user) {
       this.$emit("update-user", user);
     },
