@@ -76,7 +76,8 @@ app.delete("/delete_mumber/coffee", async (req, res) => {
   try {
     console.log(req.body);
     let { sign_up_uname } = req.body;
-    let deleteData = await Mumber.deleteOne({ sign_up_uname });
+    let deleteData = await Mumber.deleteOne({ sign_up_uname }).exec();
+    console.log(deleteData);
     if (deleteData) {
       return res.send("delete_mumber_ok!");
     }

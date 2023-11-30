@@ -111,6 +111,7 @@ app.component("login-display", {
         $("#delete-mumber").css("display", "inline-block");
         $("#message").css("display", "none");
         this.updateUser(this.myUser);
+        localStorage.setItem("uname", uname);
       }
 
       if (response == "login_wrong!") {
@@ -221,10 +222,11 @@ app.component("login-display", {
       // window.location.replace(BASE_URL);
     },
     delete_mumber(e) {
-      let uname = $("#uname").val();
+      let uname = localStorage.getItem("uname");
       let info_creds = { sign_up_uname: uname };
 
       console.log(this.BASE_URL + "/delete_mumber/coffee");
+
       $.ajax({
         type: "DELETE",
         url: this.BASE_URL + "/delete_mumber/coffee",
