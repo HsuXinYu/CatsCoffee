@@ -1,6 +1,6 @@
 # Cat's Coffee
 
-https://hsuxinyu.github.io/CoffeeShop/
+https://hsuxinyu.github.io/CatsCoffee/
 
 此專案的 LOGO 為自行設計的，專案的建立目的為學習應用 HTML、CSS、JavaScript、jQuery、Vue 製作出網頁，
 
