@@ -1,4 +1,4 @@
-# CoffeeShop
+# Cat's Coffee
 
 https://hsuxinyu.github.io/CoffeeShop/
 
