@@ -7,13 +7,18 @@ app.component("login-display", {
               <img src="images/logo_150x150.png" alt="logo" />
             </div>
             <label for="uname"><b>Username</b></label>
-            <input id="uname" type="text" name="uname" placeholder="Enter Username" @input="updateMyUser"/>
+            <input id="uname" type="text" name="uname" placeholder="Enter Username" v-model="uname" @input="updateMyUser"/>
             <br />
             <label for="psw"><b>Password</b></label>
             <input id="psw" type="password" name="psw" placeholder="Enter Password"/>
             <br />
             <button type="submit" @click="login(event)">Login</button>
             <button type="submit" @click="show_sign_up()">Sign Up</button>
+            <hr>
+            <a class="btn btn-lg btn-google" href="http://localhost:8080/auth/google">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png"/>
+            透過Google登入
+            </a>
         </form>
         <form id="sign-up-form" method="post" onsubmit="return false;">
             <h1>Sign Up</h1>
@@ -75,11 +80,12 @@ app.component("login-display", {
       this.$emit("update-user", user);
     },
     login(e) {
+      console.log(e);
       let uname = $("#uname").val();
       let psw = $("#psw").val();
       let info_creds = { login_uname: uname, login_psw: psw };
 
-      console.log(info_creds);
+      // console.log(info_creds);
 
       if ((uname === "" && psw === "") || uname === "" || psw === "") {
         $("#message").text("You must to type something!");

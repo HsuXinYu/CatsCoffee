@@ -3,19 +3,24 @@ const app = express();
 const mongoose = require("mongoose");
 const Mumber = require("./models/member");
 const cors = require("cors");
+//google Oauth
+const passport = require("passport");
+const dotenv = require("dotenv");
+dotenv.config();
+require("./config/passport");
 
 //因無法直接提出put、patch、delete請求，需下載method-override
 const methodOverride = require("method-override");
 const { MongoUnexpectedServerResponseError } = require("mongodb");
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/mumbers")
-  .then(() => {
-    console.log("成功連結資料庫...");
-  })
-  .catch((e) => {
-    console.log(e);
-  });
+// mongoose
+//   .connect("mongodb://127.0.0.1:27017/mumbers")
+//   .then(() => {
+//     console.log("成功連結資料庫...");
+//   })
+//   .catch((e) => {
+//     console.log(e);
+//   });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -86,6 +91,23 @@ app.delete("/delete_mumber/coffee", async (req, res) => {
     return res.status(500).send(e.message);
   }
 });
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+app.get("/auth/google/redirect");
+
+// var fs = require("fs");
+// var https = require("https");
+// var privateKey = fs.readFileSync("sslcert/server.key", "utf8");
+// var certificate = fs.readFileSync("sslcert/server.crt", "utf8");
+
+// var credentials = { key: privateKey, cert: certificate };
+// var httpsServer = https.createServer(credentials, app);
+
+// httpsServer.listen(8443);
 
 app.listen(8080, () => {
   console.log("正在伺服器8080...");
