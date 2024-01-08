@@ -64,6 +64,7 @@ app.component("login-display", {
   data() {
     return {
       BASE_URL: "http://127.0.0.1:8080",
+      // BASE_URL: "https://potential-lamp-59wr44r4x7f7qxv-8080.app.github.dev",
       myUser: "",
     };
   },

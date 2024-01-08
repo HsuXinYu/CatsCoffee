@@ -10,6 +10,7 @@ const { MongoUnexpectedServerResponseError } = require("mongodb");
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/mumbers")
+  // .connect("mongodb+srv://hsuxinyu:nootrac42@catscoffee.kcggjhf.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     console.log("成功連結資料庫...");
   })
