@@ -16,6 +16,11 @@
       src="https://kit.fontawesome.com/4a03b9c5b3.js"
       crossorigin="anonymous"
     ></script>
+    <!-- jquery modal css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
   </head>
   <body>
     <div id="app">
@@ -86,10 +91,29 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
-    />
+    <script>
+      // scroll to element
+      $(document).ready(function () {
+        $("a.link").on("click", function () {
+          var hrefLink = $(this).attr("href");
+          $("html,body").animate(
+            {
+              scrollTop: $(hrefLink).offset().top,
+            },
+            500
+          );
+        });
+
+        $("a.top").on("click", function () {
+          $("html,body").animate(
+            {
+              scrollTop: 0,
+            },
+            500
+          );
+        });
+      });
+    </script>
 
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

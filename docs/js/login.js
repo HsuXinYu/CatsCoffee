@@ -2,7 +2,7 @@ app.component("login-display", {
   template:
     /*html*/
     `<div id="login">
-        <form id="login-form" method="post" onsubmit="return false;">
+        <form id="login-form" method="post" onsubmit="return false;" >
             <div class="img-container">
               <img src="images/logo_150x150.png" alt="logo" />
             </div>

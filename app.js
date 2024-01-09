@@ -93,22 +93,13 @@ app.delete("/delete_mumber/coffee", async (req, res) => {
   }
 });
 
+//google Oauth
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
 app.get("/auth/google/redirect");
-
-// var fs = require("fs");
-// var https = require("https");
-// var privateKey = fs.readFileSync("sslcert/server.key", "utf8");
-// var certificate = fs.readFileSync("sslcert/server.crt", "utf8");
-
-// var credentials = { key: privateKey, cert: certificate };
-// var httpsServer = https.createServer(credentials, app);
-
-// httpsServer.listen(8443);
 
 app.listen(8080, () => {
   console.log("正在伺服器8080...");
