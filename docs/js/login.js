@@ -12,13 +12,13 @@ app.component("login-display", {
             <label for="psw"><b>Password</b></label>
             <input id="psw" type="password" name="psw" placeholder="Enter Password"/>
             <br />
-            <button type="submit" @click="login(event)">Login</button>
-            <button type="submit" @click="show_sign_up()">Sign Up</button>
+            <button type="button" @click="login(event)">Login</button>
+            <button type="button" @click="show_sign_up()">Sign Up</button>
             <hr>
-            <a class="btn btn-lg btn-google" href="http://localhost:8080/auth/google">
+            <button type="button" class="btn btn-lg btn-google" href="http://localhost:8080/auth/google">
             <img src="https://img.icons8.com/color/16/000000/google-logo.png"/>
             透過Google登入
-            </a>
+            </button>
         </form>
         <form id="sign-up-form" method="post" onsubmit="return false;">
             <h1>Sign Up</h1>
@@ -59,11 +59,11 @@ app.component("login-display", {
             <label for="sign-up-psw"><b>Password</b></label>
             <input id="sign-up-psw" type="password" placeholder="Enter Password" name="sign-up-psw" />
             <br />
-            <button id="cancel" type="reset" @click="logout()">Cancel</button>
-            <button id="sign-up" type="submit" @click="sign_up_to(event)"> Sign Up </button>
+            <button id="cancel" type="button" @click="logout()">Cancel</button>
+            <button id="sign-up" type="button" @click="sign_up_to(event)"> Sign Up </button>
         </form>
-        <button id="logout" @click="logout()">Logout</button>
-        <button id="delete-mumber" @click="delete_mumber(event)"> Delete Member </button>
+        <button id="logout" type="button" @click="logout()">Logout</button>
+        <button id="delete-mumber" type="button" @click="delete_mumber(event)"> Delete Member </button>
         <div id="message"></div>
     </div>`,
   data() {
