@@ -94,10 +94,14 @@ app.delete("/delete_mumber/coffee", async (req, res) => {
 });
 
 //google Oauth
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
+app.get("/auth/google", async (req, res) => {
+  try {
+    passport.authenticate("google", { scope: ["profile", "email"] });
+  } catch (e) {
+    console.warn(e);
+    return res.status(500).send(e.message);
+  }
+});
 
 app.get("/auth/google/redirect");
 
