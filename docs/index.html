@@ -12,12 +12,12 @@
     <!-- css -->
     <link rel="stylesheet" href="css/catsCoffee.css" />
     <link rel="stylesheet" href="css/login.css" />
-    <!-- icon -- />
+    <!-- icon -->
     <script
       src="https://kit.fontawesome.com/4a03b9c5b3.js"
       crossorigin="anonymous"
     ></script>
-    <!-- jquery modal css-->
+    <!--jquery modal css -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
@@ -37,15 +37,13 @@
             <li><a class="link" href="#news" v-if="!showShop">News</a></li>
             <li><a class="link" href="#menu" v-if="!showShop">Menu</a></li>
             <li class="login">
-              <a id="login-member" class="link" href="#" @click="show_login"
-                >Login</a
-              >
+              <a id="login-member" @click="show_login">Login</a>
             </li>
             <li>
-              <a class="link" href="#" @click="showShop=!showShop">shop</a>
+              <a @click="showShop=!showShop">shop</a>
             </li>
             <li>
-              <a class="link" href="#" @click="showCart=!showCart"
+              <a @click="showCart=!showCart"
                 ><i class="fa-solid fa-cart-arrow-down"
                   ><span class="cart-quantity" v-show="cartItems.length > 0 "
                     >[[cartItems.length]]</span
@@ -89,7 +87,7 @@
       <a class="top" href="#">&uarr;</a>
     </div>
 
-    <!-- jquery -->
+    <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script>

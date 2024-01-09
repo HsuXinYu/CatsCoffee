@@ -7,12 +7,12 @@ app.component("login-display", {
               <img src="images/logo_150x150.png" alt="logo" />
             </div>
             <label for="uname"><b>Username</b></label>
-            <input id="uname" type="text" name="uname" placeholder="Enter Username" v-model="uname" @input="updateMyUser"/>
+            <input id="uname" type="text" name="uname" placeholder="Enter Username" v-model="uname"/>
             <br />
             <label for="psw"><b>Password</b></label>
-            <input id="psw" type="password" name="psw" placeholder="Enter Password"/>
+            <input id="psw" type="password" name="psw" placeholder="Enter Password" v-model="psw"/>
             <br />
-            <button type="button" @click="login(event)">Login</button>
+            <button type="button" @click="login">Login</button>
             <button type="button" @click="show_sign_up()">Sign Up</button>
             <hr>
             <button type="button" class="btn btn-lg btn-google" href="http://localhost:8080/auth/google">
@@ -64,32 +64,41 @@ app.component("login-display", {
         </form>
         <button id="logout" type="button" @click="logout()">Logout</button>
         <button id="delete-mumber" type="button" @click="delete_mumber(event)"> Delete Member </button>
-        <div id="message"></div>
+        <div id="message" v-text="message"></div>
     </div>`,
   data() {
     return {
       BASE_URL: "http://127.0.0.1:8080",
       // BASE_URL: "https://potential-lamp-59wr44r4x7f7qxv-8080.app.github.dev",
-      myUser: "",
+      uname: "",
+      psw: "",
+      message: "",
     };
   },
   methods: {
-    updateMyUser(e) {
-      this.myUser = e.target.value;
-    },
+    // updateMyUser(e) {
+    //   this.myUser = e.target.value;
+    // },
     updateUser(user) {
-      this.$emit("update-user", user);
+      this.$emit("update-user", this.uname);
     },
-    login(e) {
-      console.log(e);
-      let uname = $("#uname").val();
-      let psw = $("#psw").val();
-      let info_creds = { login_uname: uname, login_psw: psw };
+    clear() {
+      this.uname = "";
+      this.psw = "";
+      this.message = "";
+    },
+    login() {
+      console.log(this.uname, this.psw);
+      let info_creds = { login_uname: this.uname, login_psw: this.psw };
 
       // console.log(info_creds);
 
-      if ((uname === "" && psw === "") || uname === "" || psw === "") {
-        $("#message").text("You must to type something!");
+      if (
+        (this.uname === "" && this.psw === "") ||
+        this.uname === "" ||
+        this.psw === ""
+      ) {
+        this.message = "You must to type something!";
         return;
       }
 
@@ -112,7 +121,7 @@ app.component("login-display", {
         console.log("ok");
         let uname = $("#uname").val();
         $("#login .close-modal").click();
-        $("#login-member").text("Welcome!" + uname);
+        $("#login-member").text("Welcome!" + this.uname);
         $("#login-member").css("font-size", "1.2em");
         $("#logout").css("display", "inline-block");
         $("#delete-mumber").css("display", "inline-block");
@@ -123,13 +132,12 @@ app.component("login-display", {
 
       if (response == "login_wrong!") {
         console.log("wrong");
-        $("#message").text("Your account or password is wrong!");
+        this.message = "Your account or password is wrong!";
       }
 
       if (response == "user_not_found!") {
         console.log("not found!");
-
-        $("#message").text("Your account doesn't exist!");
+        this.message = "Your account doesn't exist!";
       }
     },
     login_error(request, status, error) {
@@ -137,7 +145,7 @@ app.component("login-display", {
       console.log(request);
       console.log(status);
       console.log(error);
-      $("#message").text("Server could not connect!");
+      this.message = "Server could not connect!";
     },
     show_sign_up() {
       $("#sign-up-form")[0].reset();
@@ -171,13 +179,13 @@ app.component("login-display", {
         sign_up_uname === "" ||
         sign_up_psw === ""
       ) {
-        $("#message").text("You should fill out the form!");
+        this.message = "You should fill out the form!";
         return;
       }
 
       let phone_reg = new RegExp(/^[0-9]{10}$/g);
       if (!phone_reg.test(phone)) {
-        $("#message").text("Your phone number is not currect!");
+        this.message = "Your phone number is not currect!";
         return;
       }
 
@@ -185,7 +193,7 @@ app.component("login-display", {
         /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
       );
       if (!email_reg.test(email)) {
-        $("#message").text("Your email is not currect!");
+        this.message = "Your email is not currect!";
         return;
       }
 
@@ -212,7 +220,7 @@ app.component("login-display", {
 
       if (response == "sign_up_wrong!") {
         console.log("wrong");
-        $("#message").text("Your account already exist!");
+        this.message = "Your account already exist!";
         this.show_login();
       }
     },
@@ -221,7 +229,7 @@ app.component("login-display", {
       console.log(request);
       console.log(status);
       console.log(error);
-      $("#message").text("Server could not connect!");
+      this.message = "Server could not connect!";
     },
     logout() {
       window.localStorage.clear();

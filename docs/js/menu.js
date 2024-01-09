@@ -207,7 +207,7 @@ app.component("menu-display", {
         const price = this.dessert_items[i].price * this.dessert_item_vals[i];
         total += price;
       }
-      console.log(total);
+      // console.log(total);
       return total;
     },
   },

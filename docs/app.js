@@ -47,7 +47,7 @@ const app = Vue.createApp({
   delimiters: ["[[", "]]"],
   data() {
     return {
-      current_user: "",
+      currentUser: "",
       showShop: false,
       showCart: false,
       cartItems: [],
@@ -59,7 +59,7 @@ const app = Vue.createApp({
       $("#message").text("");
       $("#sign-up-form").css("display", "none");
       //如果已經登入則不顯示
-      if (this.current_user === "") {
+      if (this.currentUser === "") {
         $("#login-form").css("display", "inline-block");
       } else {
         $("#login-form").css("display", "none");
@@ -67,7 +67,7 @@ const app = Vue.createApp({
       $("#login").modal();
     },
     updateUser(user) {
-      this.current_user = user;
+      this.currentUser = user;
     },
     updateCart(index) {
       console.log(index);
