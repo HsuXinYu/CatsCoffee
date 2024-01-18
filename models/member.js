@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const mumberSchema = new Schema({
+const memberSchema = new Schema({
   name: { type: String },
   address: { type: String },
   phone: { type: String },
@@ -10,5 +10,5 @@ const mumberSchema = new Schema({
   sign_up_psw: { type: String },
 });
 
-const Mumber = mongoose.model("Mumber", mumberSchema);
-module.exports = Mumber;
+const Member = mongoose.model("Member", memberSchema);
+module.exports = Member;
