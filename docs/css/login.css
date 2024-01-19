@@ -61,21 +61,9 @@
 #login-form,
 #sign-up-form,
 #logout,
-#delete-mumber {
+#delete-member {
   margin: 10px;
   display: none;
-}
-#btn-google {
-  display: block;
-  background-color: var(--background-color);
-  color: var(--font-color);
-  font-size: var(--fontsize);
-  border: 2px solid var(--font-color);
-  padding: 10px 10px;
-  text-decoration: none;
-  margin: 10px 5px;
-  border-radius: 5px;
-  cursor: pointer;
 }
 #message {
   background-color: #fff;

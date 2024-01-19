@@ -13,9 +13,9 @@ app.component("login-display", {
             <input id="psw" type="password" name="psw" placeholder="Enter Password" v-model="psw"/>
             <br />
             <button type="button" @click="login">Login</button>
-            <button type="button" @click="show_sign_up()">Sign Up</button>
+            <button type="button" @click="show_sign_up">Sign Up</button>
             <hr>
-            <button type="button" class="btn btn-lg btn-google" href="http://localhost:8080/auth/google">
+            <button type="button" @click="google_login">
             <img src="https://img.icons8.com/color/16/000000/google-logo.png"/>
             透過Google登入
             </button>
@@ -59,11 +59,11 @@ app.component("login-display", {
             <label for="sign-up-psw"><b>Password</b></label>
             <input id="sign-up-psw" type="password" placeholder="Enter Password" name="sign-up-psw" />
             <br />
-            <button id="cancel" type="button" @click="logout()">Cancel</button>
+            <button id="cancel" type="button" @click="logout">Cancel</button>
             <button id="sign-up" type="button" @click="sign_up_to(event)"> Sign Up </button>
         </form>
-        <button id="logout" type="button" @click="logout()">Logout</button>
-        <button id="delete-mumber" type="button" @click="delete_mumber(event)"> Delete Member </button>
+        <button id="logout" type="button" @click="logout">Logout</button>
+        <button id="delete-member" type="button" @click="delete_member(event)"> Delete Member </button>
         <div id="message" v-text="message"></div>
     </div>`,
   data() {
@@ -82,10 +82,17 @@ app.component("login-display", {
     updateUser(user) {
       this.$emit("update-user", this.uname);
     },
-    clear() {
-      this.uname = "";
-      this.psw = "";
-      this.message = "";
+    google_login() {
+      $.ajax({
+        type: "GET",
+        url: this.BASE_URL + "/auth/google",
+        // contentType: "application/json",
+        success: function (response) {
+          login_success(response);
+        },
+        success: this.login_success,
+        error: this.login_error,
+      });
     },
     login() {
       console.log(this.uname, this.psw);
@@ -124,7 +131,7 @@ app.component("login-display", {
         $("#login-member").text("Welcome!" + this.uname);
         $("#login-member").css("font-size", "1.2em");
         $("#logout").css("display", "inline-block");
-        $("#delete-mumber").css("display", "inline-block");
+        $("#delete-member").css("display", "inline-block");
         $("#message").css("display", "none");
         this.updateUser(this.myUser);
         // localStorage.setItem("uname", uname);
@@ -236,7 +243,7 @@ app.component("login-display", {
       window.location.reload(true);
       // window.location.replace(BASE_URL);
     },
-    delete_mumber(e) {
+    delete_member(e) {
       // let uname = localStorage.getItem("uname");
       let uname = this.myUser;
       let info_creds = { sign_up_uname: uname };
@@ -245,22 +252,22 @@ app.component("login-display", {
 
       $.ajax({
         type: "DELETE",
-        url: this.BASE_URL + "/delete_mumber/coffee",
+        url: this.BASE_URL + "/delete_member/coffee",
         data: JSON.stringify(info_creds),
         contentType: "application/json",
-        success: this.delete_mumber_success,
-        error: this.delete_mumber_error,
+        success: this.delete_member_success,
+        error: this.delete_member_error,
       });
     },
-    delete_mumber_success(response) {
-      if (response == "delete_mumber_ok!") {
+    delete_member_success(response) {
+      if (response == "delete_member_ok!") {
         console.log("ok");
         alert("Your account has been deleted!");
         $("#login .close-modal").click();
         this.logout();
       }
     },
-    delete_mumber_error(request, status, error) {
+    delete_member_error(request, status, error) {
       console.log("inside error");
       console.log(request);
       console.log(status);
