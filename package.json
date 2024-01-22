@@ -1,7 +1,7 @@
 {
-  "name": "coffeeshop",
+  "name": "catscoffee",
   "version": "1.0.0",
-  "description": "https://hsuxinyu.github.io/CoffeeShop/",
+  "description": "https://hsuxinyu.github.io/CatsCoffee/",
   "main": "app.js",
   "directories": {
     "doc": "docs"
