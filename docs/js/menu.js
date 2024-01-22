@@ -139,12 +139,12 @@ app.component("menu-display", {
         <div class="map-button">
           <!-- <a target="map" href="https://pse.is/4xlhe6">台北分店</a>
           <a target="map" href="https://pse.is/4xkb94">新竹分店</a> -->
-          <button class="branch" value="taipei" @click="changeBranch">台北分店</button>
-          <button class="branch" value="hsinchu" @click="changeBranch">新竹分店</button>
+          <button type="button" class="branch" value="taipei" @click.prevent="changeBranch">台北分店</button>
+          <button type="button" class="branch" value="hsinchu" @click.prevent="changeBranch">新竹分店</button>
         </div>
         <iframe
           id="map"
-          name="map"
+          name="map"s
           src="https://pse.is/4xlhe6"
           width="500px"
           height="500px"
