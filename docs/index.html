@@ -54,9 +54,9 @@
           </ul>
         </div>
       </header>
-      <login-display @update-user="updateUser"></login-display>
-      <menu-display v-if="!showShop"></menu-display>
-      <shop-display v-else @add-to-cart="updateCart"></shop-display>
+      <login-component @update-user="updateUser"></login-component>
+      <menu-component v-if="!showShop"></menu-component>
+      <shop-component v-else @add-to-cart="updateCart"></shop-component>
       <div class="cart-list" v-if="showCart">
         <h3>購物車</h3>
         <div class="cart-item" v-for="(item, index) in cartItems">
@@ -121,9 +121,9 @@
     <script src="app.js"></script>
 
     <!-- Import Components -->
-    <script src="js/menu.js"></script>
-    <script src="js/shop.js"></script>
-    <script src="js/login.js"></script>
+    <script src="components/loginComponent.js"></script>
+    <script src="components/menuComponent.js"></script>
+    <script src="components/shopComponent.js"></script>
 
     <!-- Mount App -->
     <script>

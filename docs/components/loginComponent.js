@@ -1,4 +1,4 @@
-app.component("login-display", {
+app.component("loginComponent", {
   template:
     /*html*/
     `<div id="login">
@@ -95,7 +95,7 @@ app.component("login-display", {
       });
     },
     login() {
-      console.log(this.uname, this.psw);
+      // console.log(this.uname, this.psw);
       let info_creds = { login_uname: this.uname, login_psw: this.psw };
 
       // console.log(info_creds);
@@ -121,11 +121,11 @@ app.component("login-display", {
       });
     },
     login_success(response) {
-      console.log("inside success");
-      console.log(response);
+      // console.log("inside success");
+      // console.log(response);
 
       if (response == "login_ok!") {
-        console.log("ok");
+        // console.log("ok");
         let uname = $("#uname").val();
         $("#login .close-modal").click();
         $("#login-member").text("Welcome!" + this.uname);
@@ -138,20 +138,20 @@ app.component("login-display", {
       }
 
       if (response == "login_wrong!") {
-        console.log("wrong");
+        // console.log("wrong");
         this.message = "Your account or password is wrong!";
       }
 
       if (response == "user_not_found!") {
-        console.log("not found!");
+        // console.log("not found!");
         this.message = "Your account doesn't exist!";
       }
     },
     login_error(request, status, error) {
-      console.log("inside error");
-      console.log(request);
-      console.log(status);
-      console.log(error);
+      // console.log("inside error");
+      // console.log(request);
+      // console.log(status);
+      // console.log(error);
       this.message = "Server could not connect!";
     },
     show_sign_up() {
@@ -176,7 +176,7 @@ app.component("login-display", {
         sign_up_psw: $("#sign-up-psw").val(),
       };
 
-      console.log(info_creds);
+      // console.log(info_creds);
 
       if (
         name === "" ||
@@ -214,11 +214,11 @@ app.component("login-display", {
       });
     },
     sign_up_success(response) {
-      console.log("inside success");
-      console.log(response);
+      // console.log("inside success");
+      // console.log(response);
 
       if (response == "sign_up_ok!") {
-        console.log("ok");
+        // console.log("ok");
         alert("Your sign up is success!");
         $("#message").css("display", "none");
         $("#login .close-modal").click();
@@ -226,16 +226,16 @@ app.component("login-display", {
       }
 
       if (response == "sign_up_wrong!") {
-        console.log("wrong");
+        // console.log("wrong");
         this.message = "Your account already exist!";
         this.show_login();
       }
     },
     sign_up_error(request, status, error) {
-      console.log("inside error");
-      console.log(request);
-      console.log(status);
-      console.log(error);
+      // console.log("inside error");
+      // console.log(request);
+      // console.log(status);
+      // console.log(error);
       this.message = "Server could not connect!";
     },
     logout() {
@@ -248,7 +248,7 @@ app.component("login-display", {
       let uname = this.myUser;
       let info_creds = { sign_up_uname: uname };
 
-      console.log(info_creds);
+      // console.log(info_creds);
 
       $.ajax({
         type: "DELETE",
@@ -261,17 +261,17 @@ app.component("login-display", {
     },
     delete_member_success(response) {
       if (response == "delete_member_ok!") {
-        console.log("ok");
+        // console.log("ok");
         alert("Your account has been deleted!");
         $("#login .close-modal").click();
         this.logout();
       }
     },
     delete_member_error(request, status, error) {
-      console.log("inside error");
-      console.log(request);
-      console.log(status);
-      console.log(error);
+      // console.log("inside error");
+      // console.log(request);
+      // console.log(status);
+      // console.log(error);
       alert(request, status, error);
     },
   },

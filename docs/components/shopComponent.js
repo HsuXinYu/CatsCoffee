@@ -1,4 +1,4 @@
-app.component("shop-display", {
+app.component("shopComponent", {
   template:
     /*html*/
     `<div class="shopping-area">

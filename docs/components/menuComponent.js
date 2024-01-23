@@ -51,7 +51,7 @@ const desserts = [
   },
 ];
 
-app.component("menu-display", {
+app.component("menuComponent", {
   template:
     /*html*/
     `<div class="main-area">
@@ -185,7 +185,7 @@ app.component("menu-display", {
       c.dispatchEvent(new Event("input", { bubbles: true }));
     },
     changeBranch(e) {
-      console.log(e.target.value);
+      // console.log(e.target.value);
       let val = e.target.value;
       let map = document.querySelector("#map");
 

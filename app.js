@@ -34,19 +34,19 @@ app.use(cors());
 
 app.post("/login/coffee", async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     let { login_uname, login_psw } = req.body;
     let found_uname = await Member.findOne({
       sign_up_uname: login_uname,
     }).exec();
-    console.log(found_uname);
+    // console.log(found_uname);
 
     if (!found_uname) {
       return res.send("user_not_found!");
     }
 
     if (login_psw == found_uname.sign_up_psw) {
-      console.log("login_ok!");
+      // console.log("login_ok!");
       return res.send("login_ok!");
     } else {
       return res.send("login_wrong!");
@@ -61,7 +61,7 @@ app.post("/sign_up/coffee", async (req, res) => {
   try {
     let { name, address, phone, email, sign_up_uname, sign_up_psw } = req.body;
     let userExist = await Member.findOne({ sign_up_uname }).exec();
-    console.log(sign_up_uname, userExist);
+    // console.log(sign_up_uname, userExist);
     if (!userExist) {
       // let hashValue = await bcrypt.hash(password, saltRounds);
       let newMember = new Member({
@@ -84,10 +84,10 @@ app.post("/sign_up/coffee", async (req, res) => {
 
 app.delete("/delete_member/coffee", async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     let { sign_up_uname } = req.body;
     let deleteData = await Member.deleteOne({ sign_up_uname }).exec();
-    console.log(deleteData);
+    // console.log(deleteData);
     if (deleteData) {
       return res.send("delete_member_ok!");
     }
