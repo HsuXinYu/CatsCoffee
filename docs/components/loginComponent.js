@@ -1,4 +1,4 @@
-app.component("loginComponent", {
+export default {
   template:
     /*html*/
     `<div id="login">
@@ -275,4 +275,4 @@ app.component("loginComponent", {
       alert(request, status, error);
     },
   },
-});
+};

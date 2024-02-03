@@ -12,11 +12,6 @@
     <!-- css -->
     <link rel="stylesheet" href="css/catsCoffee.css" />
     <link rel="stylesheet" href="css/login.css" />
-    <!-- icon -->
-    <script
-      src="https://kit.fontawesome.com/4a03b9c5b3.js"
-      crossorigin="anonymous"
-    ></script>
     <!--jquery modal css -->
     <link
       rel="stylesheet"
@@ -55,8 +50,15 @@
         </div>
       </header>
       <login-component @update-user="updateUser"></login-component>
-      <menu-component v-if="!showShop"></menu-component>
-      <shop-component v-else @add-to-cart="updateCart"></shop-component>
+      <menu-component
+        :coffee-beans="coffeeBeans"
+        v-if="!showShop"
+      ></menu-component>
+      <shop-component
+        :coffee-beans="coffeeBeans"
+        @add-to-cart="updateCart"
+        v-else
+      ></shop-component>
       <div class="cart-list" v-if="showCart">
         <h3>購物車</h3>
         <div class="cart-item" v-for="(item, index) in cartItems">
@@ -82,11 +84,25 @@
           <i class="fa-brands fa-youtube"></i>
           <i class="fa-brands fa-square-instagram"></i>
         </div>
-        <p>© 2023 HSU XIN YU All Rights Reserved.</p>
+        <div class="f-text">
+          <p>© 2023 HSU XIN YU All Rights Reserved.</p>
+          <p>本網頁僅為學習用途，不做任何商業使用</p>
+        </div>
       </footer>
       <a class="top" href="#">&uarr;</a>
     </div>
 
+    <!-- icon -->
+    <script
+      src="https://kit.fontawesome.com/4a03b9c5b3.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- google map -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUFpslUUpcM_wArA9vs6scpJz3JS2Oics"
+    ></script>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -113,21 +129,9 @@
         });
       });
     </script>
-
-    <!-- Vue.js -->
+    <!-- Vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
     <!-- Import App -->
-    <script src="app.js"></script>
-
-    <!-- Import Components -->
-    <script src="components/loginComponent.js"></script>
-    <script src="components/menuComponent.js"></script>
-    <script src="components/shopComponent.js"></script>
-
-    <!-- Mount App -->
-    <script>
-      app.mount("#app");
-    </script>
+    <script src="app.js" type="module"></script>
   </body>
 </html>

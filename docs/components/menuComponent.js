@@ -51,7 +51,7 @@ const desserts = [
   },
 ];
 
-app.component("menuComponent", {
+export default {
   template:
     /*html*/
     `<div class="main-area">
@@ -134,29 +134,24 @@ app.component("menuComponent", {
           </div>
         </div>
         <div class="products-img">
-          <img  v-for="(product,index) in products" :src="product.img" alt="product" />
+          <img  v-for="(product,index) in coffeeBeans" :src="product.img" alt="product" />
         </div>
-        <div class="map-button">
-          <!-- <a target="map" href="https://pse.is/4xlhe6">台北分店</a>
-          <a target="map" href="https://pse.is/4xkb94">新竹分店</a> -->
-          <button type="button" class="branch" value="taipei" @click.prevent="changeBranch">台北分店</button>
-          <button type="button" class="branch" value="hsinchu" @click.prevent="changeBranch">新竹分店</button>
+          <button type="button" class="branch"  @click.prevent="initMap('taipei')">台北分店</button>
+          <button type="button" class="branch"  @click.prevent="initMap('hsinchu')">新竹分店</button>
+        <div class="map-container">  
+          <div id="map" class="google-map"></div> 
         </div>
-        <iframe
-          id="map"
-          name="map"s
-          src="https://pse.is/4xlhe6"
-          width="500px"
-          height="500px"
-        ></iframe>
     </div>`,
+  props: ["coffeeBeans"],
   data() {
     return {
       coffee_items: coffees,
       dessert_items: desserts,
       coffee_item_vals: coffees.map((item) => 0),
       dessert_item_vals: desserts.map((item) => 0),
-      products: coffeeBeans,
+      map: null,
+      lat: "",
+      lng: "",
     };
   },
   methods: {
@@ -184,16 +179,33 @@ app.component("menuComponent", {
       }
       c.dispatchEvent(new Event("input", { bubbles: true }));
     },
-    changeBranch(e) {
-      // console.log(e.target.value);
-      let val = e.target.value;
-      let map = document.querySelector("#map");
-
-      if (val == "taipei") {
-        map.src = "https://pse.is/4xlhe6";
-      } else if (val == "hsinchu") {
-        map.src = "https://pse.is/4xkb94";
+    initMap(location) {
+      if (location === "taipei") {
+        this.lat = 25.0465451;
+        this.lng = 121.5147636;
+      } else if (location === "hsinchu") {
+        this.lat = 24.8015877;
+        this.lng = 120.9690134;
       }
+
+      // 透過 Map 物件建構子建立新地圖 map 物件實例，並將地圖呈現在 id 為 map 的元素中
+      this.map = new google.maps.Map(document.getElementById("map"), {
+        // 設定地圖的中心點經緯度位置
+        center: { lat: this.lat, lng: this.lng },
+        zoom: 15,
+        maxZoom: 20,
+        minZoom: 3,
+        streetViewControl: false,
+        mapTypeControl: false,
+      });
+
+      // 建立一個新地標
+      const marker = new google.maps.Marker({
+        // 設定地標的座標
+        position: { lat: this.lat, lng: this.lng },
+        // 設定地標要放在哪一個地圖
+        map: this.map,
+      });
     },
   },
   computed: {
@@ -211,4 +223,7 @@ app.component("menuComponent", {
       return total;
     },
   },
-});
+  mounted() {
+    this.initMap("taipei");
+  },
+};

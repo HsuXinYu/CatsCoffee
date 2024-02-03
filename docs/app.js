@@ -1,3 +1,7 @@
+import menuComponent from "./components/menuComponent.js";
+import loginComponent from "./components/loginComponent.js";
+import shopComponent from "./components/shopComponent.js";
+
 const coffeeBeans = [
   {
     id: 1,
@@ -51,7 +55,13 @@ const app = Vue.createApp({
       showShop: false,
       showCart: false,
       cartItems: [],
+      coffeeBeans,
     };
+  },
+  components: {
+    menuComponent,
+    loginComponent,
+    shopComponent,
   },
   methods: {
     show_login() {
@@ -88,3 +98,5 @@ const app = Vue.createApp({
     },
   },
 });
+
+app.mount("#app");

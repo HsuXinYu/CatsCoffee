@@ -58,6 +58,7 @@ ul li a {
   text-decoration: none;
   font-size: 1.5rem;
   position: relative;
+  cursor: pointer;
 }
 ul li a::after {
   content: "";
@@ -73,7 +74,6 @@ ul li a:hover::after {
   left: 0;
   right: 0;
 }
-
 .main-area {
   text-align: center;
 }
@@ -150,11 +150,15 @@ ul li a:hover::after {
   border: none;
   border-bottom: dotted;
   border-radius: 5px;
-  margin: 2% 2% 0 2%;
+  margin: 2%;
   padding: 1%;
   cursor: pointer;
 }
-#map {
+.map-container {
+  display: flex;
+  justify-content: center;
+}
+.google-map {
   width: 40%;
   height: 300px;
   margin: 2%;
@@ -230,9 +234,9 @@ footer {
   display: flex;
   justify-content: space-around;
 }
-footer p {
+.f-text {
   position: absolute;
-  top: 45%;
+  top: 20%;
   right: 10%;
 }
 .top {
@@ -290,7 +294,7 @@ footer p {
     padding: 1%;
     width: 20%;
   }
-  footer p {
+  .f-text {
     position: initial;
   }
 }
@@ -300,8 +304,8 @@ footer p {
   #heading,
   #news,
   .products-img,
-  .map-button,
-  #map {
+  .branch,
+  .map-container {
     display: none;
   }
   .header {
@@ -310,6 +314,10 @@ footer p {
   .logo {
     width: 12%;
     left: 45%;
+  }
+  .about {
+    margin: 10px;
+    text-align: center;
   }
   #menu {
     max-width: 80%;
@@ -331,14 +339,10 @@ footer p {
   .quantity-field {
     width: 25px;
   }
-  .about {
-    margin: 10px;
-    text-align: center;
-  }
   .f-icon {
     font-size: 1.5rem;
   }
-  footer p {
+  .f-text {
     font-size: 0.6rem;
   }
 }

@@ -1,8 +1,8 @@
-app.component("shopComponent", {
+export default {
   template:
     /*html*/
     `<div class="shopping-area">
-        <div class="shopping-box" v-for="(product,index) in products">
+        <div class="shopping-box" v-for="(product,index) in coffeeBeans">
           <div class="content">
             <img :src="product.img" alt="product" />
             <div class="product-info">
@@ -15,10 +15,9 @@ app.component("shopComponent", {
           </div>
         </div>
     </div>`,
+  props: ["coffeeBeans"],
   data() {
-    return {
-      products: coffeeBeans,
-    };
+    return {};
   },
   methods: {
     addToCart(index) {
@@ -26,4 +25,4 @@ app.component("shopComponent", {
       this.$emit("add-to-cart", index);
     },
   },
-});
+};
