@@ -64,7 +64,7 @@ const app = Vue.createApp({
     shopComponent,
   },
   methods: {
-    show_login() {
+    showLogin() {
       $("#login-form")[0].reset();
       $("#message").text("");
       $("#sign-up-form").css("display", "none");

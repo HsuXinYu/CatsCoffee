@@ -6,8 +6,8 @@ export default {
             <div class="img-container">
               <img src="images/logo_150x150.png" alt="logo" />
             </div>
-            <label for="uname"><b>Username</b></label>
-            <input id="uname" type="text" name="uname" placeholder="Enter Username" v-model="uname"/>
+            <label for="email"><b>Email</b></label>
+            <input id="email" type="text" name="email" placeholder="Enter Email" v-model="email"/>
             <br />
             <label for="psw"><b>Password</b></label>
             <input id="psw" type="password" name="psw" placeholder="Enter Password" v-model="psw"/>
@@ -50,11 +50,8 @@ export default {
             <label for="phone"><b>Phone</b></label>
             <input id="phone" type="text" placeholder="Enter Phone" name="phone" />
             <br />
-            <label for="email"><b>Email</b></label>
-            <input id="email" type="email" placeholder="Enter Email" name="email" />
-            <br />
-            <label for="sign-up-uname"><b>Username</b></label>
-            <input id="sign-up-uname" type="text" placeholder="Enter Username" name="sign-up-uname" />
+            <label for="sign-up-email"><b>Email</b></label>
+            <input id="sign-up-email" type="email" placeholder="Enter Email" name="sign-up-email" />
             <br />
             <label for="sign-up-psw"><b>Password</b></label>
             <input id="sign-up-psw" type="password" placeholder="Enter Password" name="sign-up-psw" />
@@ -66,34 +63,35 @@ export default {
         <button id="delete-member" type="button" @click="delete_member(event)"> Delete Member </button>
         <div id="message" v-text="message"></div>
     </div>`,
+  props: ["showLogin"],
   data() {
     return {
       BASE_URL: "http://127.0.0.1:8080",
       // BASE_URL: "https://potential-lamp-59wr44r4x7f7qxv-8080.app.github.dev",
-      uname: "",
+      name: "",
+      email: "",
       psw: "",
       message: "",
     };
   },
   methods: {
-    // updateMyUser(e) {
-    //   this.myUser = e.target.value;
-    // },
+    updateMyUser(e) {
+      this.myUser = e.target.value;
+    },
     updateUser(user) {
-      this.$emit("update-user", this.uname);
+      this.$emit("update-user", this.name);
     },
     google_login() {
       window.location.href = this.BASE_URL + "/auth/google";
     },
     login() {
-      // console.log(this.uname, this.psw);
-      let info_creds = { login_uname: this.uname, login_psw: this.psw };
+      let info_creds = { login_email: this.email, login_psw: this.psw };
 
       // console.log(info_creds);
 
       if (
-        (this.uname === "" && this.psw === "") ||
-        this.uname === "" ||
+        (this.email === "" && this.psw === "") ||
+        this.email === "" ||
         this.psw === ""
       ) {
         this.message = "You must to type something!";
@@ -154,16 +152,14 @@ export default {
       let name = $("#name").val();
       let address = $("#address").val();
       let phone = $("#phone").val();
-      let email = $("#email").val();
-      let sign_up_uname = $("#sign-up-uname").val();
+      let sign_up_email = $("#sign-up-email").val();
       let sign_up_psw = $("#sign-up-psw").val();
 
       let info_creds = {
         name: $("#name").val(),
         address: $("#address").val(),
         phone: $("#phone").val(),
-        email: $("#email").val(),
-        sign_up_uname: $("#sign-up-uname").val(),
+        sign_up_email: $("#sign-up-email").val(),
         sign_up_psw: $("#sign-up-psw").val(),
       };
 
@@ -173,8 +169,7 @@ export default {
         name === "" ||
         address === "" ||
         phone === "" ||
-        email === "" ||
-        sign_up_uname === "" ||
+        sign_up_email === "" ||
         sign_up_psw === ""
       ) {
         this.message = "You should fill out the form!";
@@ -190,7 +185,7 @@ export default {
       let email_reg = new RegExp(
         /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
       );
-      if (!email_reg.test(email)) {
+      if (!email_reg.test(sign_up_email)) {
         this.message = "Your email is not currect!";
         return;
       }
@@ -213,13 +208,13 @@ export default {
         alert("Your sign up is success!");
         $("#message").css("display", "none");
         $("#login .close-modal").click();
-        this.show_login();
+        this.$emit.showLogin();
       }
 
       if (response == "sign_up_wrong!") {
         // console.log("wrong");
         this.message = "Your account already exist!";
-        this.show_login();
+        this.$emit.showLogin();
       }
     },
     sign_up_error(request, status, error) {

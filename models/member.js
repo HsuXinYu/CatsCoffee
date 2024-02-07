@@ -6,8 +6,13 @@ const memberSchema = new Schema({
   address: { type: String },
   phone: { type: String },
   email: { type: String },
-  sign_up_uname: { type: String },
   sign_up_psw: { type: String },
+  googleID: {
+    type: String,
+  },
+  thumbnail: {
+    type: String,
+  },
 });
 
 const Member = mongoose.model("Member", memberSchema);
