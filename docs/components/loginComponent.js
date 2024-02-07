@@ -83,16 +83,7 @@ export default {
       this.$emit("update-user", this.uname);
     },
     google_login() {
-      $.ajax({
-        type: "GET",
-        url: this.BASE_URL + "/auth/google",
-        // contentType: "application/json",
-        success: function (response) {
-          login_success(response);
-        },
-        success: this.login_success,
-        error: this.login_error,
-      });
+      window.location.href = this.BASE_URL + "/auth/google";
     },
     login() {
       // console.log(this.uname, this.psw);
